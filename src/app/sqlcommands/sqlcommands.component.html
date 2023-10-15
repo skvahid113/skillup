@@ -1,0 +1,718 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="selectedContent = 'ddl'" class="btn">Data Definition Language (DDL)</button>
+        <button (click)="selectedContent = 'dml'" class="btn">Data Manipulation Language (DML)</button>
+        <!-- Add buttons for other sections -->
+    </div>
+
+    <!-- Content area for DML -->
+    <ng-container *ngIf="selectedContent === 'ddl'">
+        <div class="ddl-content">
+
+            <!-- Content area for DDL -->
+            <div class="accordion" id="ddlAccordion">
+                <!-- CREATE Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="createAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#createCollapse" aria-expanded="false">
+                            CREATE
+                        </button>
+                    </h2>
+                    <div id="createCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+
+                            <div class="sql-syntax">
+                                <pre>
+            <span class="sql-keyword">CREATE</span> <span class="sql-keyword">TABLE</span> example_table (
+                <span class="sql-column">id</span> <span class="sql-datatype">INT</span> <span class="sql-constraint">PRIMARY KEY</span>,
+                <span class="sql-column">name</span> <span class="sql-datatype">VARCHAR(255)</span>,
+                <span class="sql-column">age</span> <span class="sql-datatype">INT</span>,
+                <span class="sql-column">created_at</span> <span class="sql-datatype">TIMESTAMP</span>
+            );
+                        </pre>
+                            </div>
+                            <!-- SQL Example and Create Table Script -->
+                            <div class="sql-editor">
+                                <textarea id="createTableScript" class="form-control" rows="16">
+            -- Create a Product table
+            CREATE TABLE Product (
+                ProductID INT IDENTITY(1,1) PRIMARY KEY, -- Unique product identifier
+                ProductName NVARCHAR(255) NOT NULL,     -- Name of the product
+                Description TEXT,                        -- Product description
+                Price DECIMAL(10, 2) NOT NULL,           -- Price of the product
+                StockQuantity INT DEFAULT 0,             -- Quantity in stock (default to 0)
+                IsActive BIT,                            -- Indicates if the product is active
+                ReleaseDate DATE,                        -- Date when the product was released
+                LastUpdated DATETIME2,                   -- Last update timestamp
+                ProductImage VARBINARY(MAX),             -- Binary data for product image
+                CategoryID INT,                          -- Category to which the product belongs
+            
+                -- Foreign key constraint to Category table
+                CONSTRAINT FK_Product_Category FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+            );
+                        </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ALTER Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="alterAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#alterCollapse" aria-expanded="false">
+                            ALTER
+                        </button>
+                    </h2>
+                    <div id="alterCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- Add Column -->
+                            <div class="sql-description">
+                                <p>
+                                    The ALTER statement in SQL can be used to add a new column to an existing table.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">ADD COLUMN</strong> <span
+                                            class="sql-identifier">NewColumn
+                                            INT;</span> <span class="sql-comment">-- Add a new column</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Modify Column -->
+                            <div class="sql-description">
+                                <p>
+                                    The ALTER statement can also be used to modify the data type of an existing column
+                                    in a
+                                    table.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">MODIFY COLUMN</strong> <span
+                                            class="sql-identifier">ProductName VARCHAR(50);</span> <span
+                                            class="sql-comment">--
+                                            Modify column data type</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Drop Column -->
+                            <div class="sql-description">
+                                <p>
+                                    Use the ALTER statement to drop an existing column from a table.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">DROP COLUMN</strong> <span
+                                            class="sql-identifier">Description;</span> <span class="sql-comment">-- Drop
+                                            an
+                                            existing column</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Rename Table -->
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing table using the ALTER statement.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">RENAME TO</strong> <span
+                                            class="sql-identifier">NewTableName;</span> <span class="sql-comment">--
+                                            Rename the
+                                            table</span></li>
+                                </ul>
+                            </div>
+
+
+                            <!-- Description for RENAMING TABLE -->
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing table using the SQL Server stored procedure <strong
+                                        class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for RENAMING TABLE USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName',</strong> <span
+                                            class="sql-comment">-- Specify the current table name</span></li>
+                                    <li><strong class="sql-identifier">'NewTableName';</strong> <span
+                                            class="sql-comment">--
+                                            Specify the new table name</span></li>
+                                </ul>
+
+                                <div class="sql-editor">
+                                    <p><strong class="sql-keyword">EXEC sp_rename 'dbo.Product', 'Product_new';</strong>
+                                        <span class="sql-comment">-- Rename the table</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing column in a table using the SQL Server stored procedure
+                                    <strong class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for RENAMING COLUMN USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName.OldColumnName',</strong>
+                                        <span class="sql-comment">-- Specify the current column name</span>
+                                    </li>
+                                    <li><strong class="sql-identifier">'NewColumnName',</strong> <span
+                                            class="sql-comment">--
+                                            Specify the new column name</span></li>
+                                    <li><strong class="sql-identifier">'COLUMN';</strong> <span class="sql-comment">--
+                                            Specify
+                                            'COLUMN' to indicate renaming a column</span></li>
+                                </ul>
+
+
+                                <div class="sql-editor">
+                                    <p><strong class="sql-keyword">EXEC sp_rename 'dbo.Product.ProductId',
+                                            'NewProductId', 'COLUMN';</strong> <span class="sql-comment">-- Rename the
+                                            column</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DROP Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="dropAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#dropCollapse" aria-expanded="false">
+                            DROP
+                        </button>
+                    </h2>
+                    <div id="dropCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- Drop Column -->
+                            <div class="sql-description">
+                                <p>
+                                    Use the ALTER statement to drop an existing column from a table.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">DROP COLUMN</strong> <span
+                                            class="sql-identifier">Description;</span>
+                                        <span class="sql-comment">-- Drop an existing column</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Drop Table -->
+                            <div class="sql-description">
+                                <p>
+                                    You can drop (delete) an existing table using the DROP TABLE statement.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">DROP TABLE</strong> <span
+                                        class="sql-identifier">Product;</span>
+                                    <span class="sql-comment">-- Drop the table</span>
+                                </p>
+                            </div>
+
+                            <!-- Drop Table Using sp_rename -->
+                            <div class="sql-description">
+                                <p>
+                                    You can drop (delete) an existing table using the SQL Server stored procedure
+                                    <strong class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for DROPPING TABLE USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName',</strong> <span
+                                            class="sql-comment">-- Specify the table name to drop</span></li>
+                                    <li><strong class="sql-identifier">NULL, 'OBJECT';</strong> <span
+                                            class="sql-comment">-- Specify 'OBJECT' to indicate dropping a table</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename 'SchemaName.Product', NULL,
+                                        'OBJECT';</strong>
+                                    <span class="sql-comment">-- Drop the table</span>
+                                </p>
+                            </div>
+
+                            <!-- Drop Column Using sp_rename -->
+                            <div class="sql-description">
+                                <p>
+                                    You can drop (delete) an existing column using the SQL Server stored procedure
+                                    <strong class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for DROPPING COLUMN USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName.ColumnName',</strong> <span
+                                            class="sql-comment">-- Specify the column name to drop</span></li>
+                                    <li><strong class="sql-identifier">NULL, 'COLUMN';</strong> <span
+                                            class="sql-comment">-- Specify 'COLUMN' to indicate dropping a column</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename 'SchemaName.Product.Description', NULL,
+                                        'COLUMN';</strong>
+                                    <span class="sql-comment">-- Drop the column</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RENAME Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="renameAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#renameCollapse" aria-expanded="false">
+                            RENAME
+                        </button>
+                    </h2>
+                    <div id="renameCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+
+
+                            <!-- Rename Table -->
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing table using the ALTER statement.
+                                </p>
+                            </div>
+
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">ALTER TABLE Product</strong></p>
+                                <ul>
+                                    <li><strong class="sql-keyword">RENAME TO</strong> <span
+                                            class="sql-identifier">NewTableName;</span> <span class="sql-comment">--
+                                            Rename the
+                                            table</span></li>
+                                </ul>
+                            </div>
+
+
+                            <!-- Description for RENAMING TABLE -->
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing table using the SQL Server stored procedure <strong
+                                        class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for RENAMING TABLE USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName',</strong> <span
+                                            class="sql-comment">-- Specify the current table name</span></li>
+                                    <li><strong class="sql-identifier">'NewTableName';</strong> <span
+                                            class="sql-comment">--
+                                            Specify the new table name</span></li>
+                                </ul>
+
+                                <div class="sql-editor">
+                                    <p><strong class="sql-keyword">EXEC sp_rename 'dbo.Product', 'Product_new';</strong>
+                                        <span class="sql-comment">-- Rename the table</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="sql-description">
+                                <p>
+                                    You can rename an existing column in a table using the SQL Server stored procedure
+                                    <strong class="sql-identifier">sp_rename</strong>.
+                                </p>
+                            </div>
+
+                            <!-- SQL Example for RENAMING COLUMN USING sp_rename -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">EXEC sp_rename</strong></p>
+                                <ul>
+                                    <li><strong class="sql-identifier">'SchemaName.TableName.OldColumnName',</strong>
+                                        <span class="sql-comment">-- Specify the current column name</span>
+                                    </li>
+                                    <li><strong class="sql-identifier">'NewColumnName',</strong> <span
+                                            class="sql-comment">--
+                                            Specify the new column name</span></li>
+                                    <li><strong class="sql-identifier">'COLUMN';</strong> <span class="sql-comment">--
+                                            Specify
+                                            'COLUMN' to indicate renaming a column</span></li>
+                                </ul>
+
+
+                                <div class="sql-editor">
+                                    <p><strong class="sql-keyword">EXEC sp_rename 'dbo.Product.ProductId',
+                                            'NewProductId', 'COLUMN';</strong> <span class="sql-comment">-- Rename the
+                                            column</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content for DML goes here -->
+        </div>
+    </ng-container>
+
+
+    <!-- Content for DDL goes here -->
+    <ng-container *ngIf="selectedContent === 'dml'">
+        <div class="dml-content">
+            <div class="accordion" id="ddlAccordion">
+                <!-- CREATE Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="createAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#createCollapse" aria-expanded="false">
+                            INSERT
+                        </button>
+                    </h2>
+                    <div id="createCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- SQL Description for INSERT -->
+                            <div class="sql-description">
+                                <p>
+                                    The INSERT statement in SQL is used to add new records to an existing table. It
+                                    allows you to specify the values for each column when adding a new row.
+                                </p>
+                            </div>
+
+                            <!-- SQL Syntax for INSERT -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">INSERT INTO Product</strong></p>
+                                <p><strong class="sql-keyword">(ProductID, ProductName, Description, Price,
+                                        StockQuantity, IsActive, ReleaseDate, LastUpdated, ProductImage,
+                                        CategoryID)</strong></p>
+                                <p><strong class="sql-keyword">VALUES</strong></p>
+                                <ul>
+                                    <li>(1, 'Cocoa Coffee', 'Delicious cocoa-flavored coffee blend', 19.99, 100, 1,
+                                        '2023-01-15', '2023-01-15 10:30:00', NULL, 1);</li>
+                                    <li>(2, 'Espresso Blend', 'Strong and bold espresso coffee', 29.99, 150, 1,
+                                        '2023-01-16', '2023-01-16 11:45:00', NULL, 2);</li>
+                                    <li>(3, 'Vanilla Latte', 'Smooth and creamy vanilla latte', 39.99, 200, 1,
+                                        '2023-01-17', '2023-01-17 09:15:00', NULL, 1);</li>
+                                    <li>(4, 'Mocha Frappuccino', 'Chilled mocha frappuccino', 49.99, 50, 1,
+                                        '2023-01-18', '2023-01-18 14:20:00', NULL, 2);</li>
+                                    <li>(5, 'Caramel Macchiato', 'Caramel-infused macchiato coffee', 59.99, 75, 1,
+                                        '2023-01-19', '2023-01-19 16:55:00', NULL, 1);</li>
+                                    <li>(6, 'Iced Americano', 'Refreshingly iced Americano coffee', 69.99, 90, 1,
+                                        '2023-01-20', '2023-01-20 08:45:00', NULL, 2);</li>
+                                    <li>(7, 'Hazelnut Cappuccino', 'Rich and nutty hazelnut cappuccino', 79.99, 120, 1,
+                                        '2023-01-21', '2023-01-21 15:30:00', NULL, 1);</li>
+                                    <li>(8, 'Decaf Dark Roast', 'Decaffeinated dark roast coffee', 69.99, 80, 1,
+                                        '2023-01-22', '2023-01-22 10:20:00', NULL, 2);</li>
+                                    <li>(9, 'Irish Cream Latte', 'Irish cream-flavored latte', 89.99, 110, 1,
+                                        '2023-01-23', '2023-01-23 13:10:00', NULL, 1);</li>
+                                    <li>(10, 'Cinnamon Mocha', 'Sweet and spicy cinnamon mocha', 79.99, 60, 1,
+                                        '2023-01-24', '2023-01-24 17:40:00', NULL, 2);</li>
+                                </ul>
+                            </div>
+
+                            <!-- Display Table -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="displayTableAccordion">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#displayTableCollapse" aria-expanded="false">
+                                        Display Table
+                                    </button>
+                                </h2>
+                                <div id="displayTableCollapse" class="accordion-collapse collapse"
+                                    data-bs-parent="#ddlAccordion">
+                                    <div class="accordion-body">
+                                        <!-- HTML table to display Product records -->
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ProductID</th>
+                                                    <th>ProductName</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                    <th>StockQuantity</th>
+                                                    <th>IsActive</th>
+                                                    <th>ReleaseDate</th>
+                                                    <th>LastUpdated</th>
+                                                    <th>CategoryID</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let product of products">
+                                                    <td>{{ product.ProductID }}</td>
+                                                    <td>{{ product.ProductName }}</td>
+                                                    <td>{{ product.Description }}</td>
+                                                    <td>{{ product.Price }}</td>
+                                                    <td>{{ product.StockQuantity }}</td>
+                                                    <td>{{ product.IsActive }}</td>
+                                                    <td>{{ product.ReleaseDate }}</td>
+                                                    <td>{{ product.LastUpdated }}</td>
+                                                    <td>{{ product.CategoryID }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ALTER Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="alterAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#alterCollapse" aria-expanded="false">
+                            UPDATE
+                        </button>
+                    </h2>
+                    <div id="alterCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- Description for UPDATE -->
+                            <div class="sql-description">
+                                <p>
+                                    The UPDATE statement in SQL is used to modify existing records in a table. It allows
+                                    you to change the
+                                    values of specific columns in one or more rows based on a condition.
+                                </p>
+                            </div>
+
+                            <!-- SQL Syntax for UPDATE -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">UPDATE</strong> <span
+                                        class="sql-identifier">Product</span></p>
+                                <p><strong class="sql-keyword">SET</strong></p>
+                                <ul>
+                                    <li><span class="sql-column">Price</span> = <span class="sql-value">19.99</span>,
+                                        <span class="sql-comment">-- New price value</span>
+                                    </li>
+                                    <li><span class="sql-column">LastUpdated</span> = <span
+                                            class="sql-value">GETDATE()</span>, <span class="sql-comment">-- Current
+                                            date and time</span></li>
+                                </ul>
+                                <p><strong class="sql-keyword">WHERE</strong> <span class="sql-column">ProductID</span>
+                                    = <span class="sql-value">42</span>;</p>
+                            </div>
+
+                            <!-- Before-and-After Table -->
+                            <div class="sql-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ProductID</th>
+                                            <th>ProductName</th>
+                                            <th>Description</th>
+                                            <th>Price (Before)</th>
+                                            <th>Price (After)</th>
+                                            <th>LastUpdated (Before)</th>
+                                            <th>LastUpdated (After)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>42</td>
+                                            <td>Product XYZ</td>
+                                            <td>Old Description</td>
+                                            <td>24.99</td>
+                                            <td>19.99</td>
+                                            <td>2023-05-15 08:30:00</td>
+                                            <td>2023-10-15 15:45:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DELETE Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="dropAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#dropCollapse" aria-expanded="false">
+                            DELETE
+                        </button>
+                    </h2>
+                    <div id="dropCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- Description for DELETE -->
+                            <div class="sql-description">
+                                <p>
+                                    The DELETE statement in SQL is used to remove records from a table based on a
+                                    specified condition.
+                                    It allows you to delete one or more rows from a table.
+                                </p>
+                            </div>
+
+                            <!-- SQL Syntax for DELETE -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">DELETE FROM</strong> <span
+                                        class="sql-identifier">Product</span></p>
+                                <p><strong class="sql-keyword">WHERE</strong> <span class="sql-column">ProductID</span>
+                                    = <span class="sql-value">42</span>;</p>
+                            </div>
+
+                            <!-- Before-and-After Table -->
+                            <div class="sql-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ProductID</th>
+                                            <th>ProductName</th>
+                                            <th>Description</th>
+                                            <th>Price (Before)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>42</td>
+                                            <td>Product XYZ</td>
+                                            <td>Old Description</td>
+                                            <td>19.99</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <!-- After Table -->
+                            <div class="sql-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ProductID</th>
+                                            <th>ProductName</th>
+                                            <th>Description</th>
+                                            <th>Price (After)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Empty table after DELETE -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RENAME Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="renameAccordion">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#renameCollapse" aria-expanded="false">
+                            TRUNCATE
+                        </button>
+                    </h2>
+                    <div id="renameCollapse" class="accordion-collapse collapse" data-bs-parent="#ddlAccordion">
+                        <div class="accordion-body">
+                            <!-- Description for TRUNCATE -->
+                            <div class="sql-description">
+                                <p>
+                                    The TRUNCATE TABLE statement in SQL is used to quickly delete all records from a
+                                    table and reset the
+                                    identity counter, if any. It is a faster operation compared to DELETE for removing
+                                    all records.
+                                </p>
+                            </div>
+
+                            <!-- SQL Syntax for TRUNCATE -->
+                            <div class="sql-editor">
+                                <p><strong class="sql-keyword">TRUNCATE TABLE</strong> <span
+                                        class="sql-identifier">Product</span>;</p>
+                            </div>
+
+                            <!-- Before Table -->
+                            <div class="sql-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ProductID</th>
+                                            <th>ProductName</th>
+                                            <th>Description</th>
+                                            <th>Price (Before)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>42</td>
+                                            <td>Product XYZ</td>
+                                            <td>Old Description</td>
+                                            <td>19.99</td>
+                                        </tr>
+                                        <tr>
+                                            <td>43</td>
+                                            <td>Product ABC</td>
+                                            <td>Another Description</td>
+                                            <td>29.99</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- After Table -->
+                            <div class="sql-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ProductID</th>
+                                            <th>ProductName</th>
+                                            <th>Description</th>
+                                            <th>Price (After)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Empty table after TRUNCATE -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- Add ng-container blocks for other sections -->
+</div>

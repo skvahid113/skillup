@@ -1,0 +1,180 @@
+.jumbotron {
+    background: linear-gradient(to bottom, #3366cc, #99ccff);
+    padding: 40px;
+    text-align: center;
+    /* Center the text */
+}
+
+.icon-container {
+    left: 10px;
+    /* Adjust the position as needed */
+    top: 10px;
+    /* Adjust the position as needed */
+    pointer-events: none;
+    /* This prevents the icon from intercepting click events */
+    font-size: 250px;
+    /* Adjust the icon size as needed */
+    color: rgba(118, 39, 118, 0.326);
+    /* Adjust the icon opacity as needed */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.active-button {
+    cursor: pointer;
+    position: relative;
+}
+
+.active-button::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    /* Adjust the bubble's width as needed */
+    height: 10px;
+    /* Adjust the bubble's height as needed */
+    background-color: white;
+    /* Adjust the bubble's background color */
+    border-radius: 50%;
+    /* Create a circular bubble */
+    top: 50%;
+    /* Position the bubble vertically centered */
+    right: 0;
+    /* Position the bubble to the right of the button */
+    transform: translate(-50%, -50%);
+    /* Center the bubble */
+    animation: blink 1s infinite;
+    /* Apply the blinking animation */
+}
+
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+
+
+.jumbotron-heading {
+    font-size: 36px;
+    /* Increase the font size for the heading */
+    margin-top: 20px;
+    /* Add margin top for centering */
+    color: #fff;
+}
+
+.overview-buttons {
+    margin-top: 20px;
+    /* Add margin top to separate buttons from the heading */
+}
+
+.btn {
+    background-color: #ff9900;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ffcc66;
+}
+
+
+.overview {
+    background-color: #3498db;
+    /* Blue */
+}
+
+.sql-commands {
+    background-color: #e74c3c;
+    /* Red */
+}
+
+.dql {
+    background-color: #27ae60;
+    /* Green */
+}
+
+.data-types {
+    background-color: #9b59b6;
+    /* Purple */
+}
+
+.null {
+    background-color: #f1c40f;
+    /* Yellow */
+}
+
+.constraints {
+    background-color: #e67e22;
+    /* Orange */
+}
+
+.joins {
+    background-color: #16a085;
+    /* Teal */
+}
+
+.math-functions {
+    background-color: #d35400;
+    /* Brown */
+}
+
+.string {
+    background-color: #2c3e50;
+    /* Dark Blue */
+}
+
+.dates {
+    background-color: #8e44ad;
+    /* Violet */
+}
+
+.ranking {
+    background-color: #c0392b;
+    /* Dark Red */
+}
+
+.tcl {
+    background-color: #3498db;
+    /* Blue */
+}
+
+.case-statement {
+    background-color: #e74c3c;
+    /* Red */
+}
+
+.if-while {
+    background-color: #27ae60;
+    /* Green */
+}
+
+.user-defined-functions {
+    background-color: #9b59b6;
+    /* Purple */
+}
+
+.procedures {
+    background-color: #f1c40f;
+    /* Yellow */
+}

@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <div class="icon-container">
+    <!-- Place the FA icon within the container -->
+    <i class="fas fa-database"></i>
+  </div>
+  <h1 class="jumbotron-heading">
+
+    WELCOME to GO Path SQL</h1>
+  <div class="overview-buttons">
+    <button (click)="showContent('sqloverview')" [class.active-button]="activeButton === 'sqloverview'"
+      class="btn overview">
+      Overview
+    </button>
+    <button (click)="showContent('sqlcommands')" [class.active-button]="activeButton === 'sqlcommands'"
+      class="btn sql-commands">
+      SQL Commands
+    </button>
+    <button routerLink="/dql" class="btn dql">DQL</button>
+    <button routerLink="/data-types" class="btn data-types">Data Types</button>
+    <button routerLink="/null" class="btn null">Null</button>
+    <button routerLink="/constraints" class="btn constraints">Constraints</button>
+    <button routerLink="/joins" class="btn joins">Joins</button>
+    <button routerLink="/math-functions" class="btn math-functions">Math Functions</button>
+    <button routerLink="/string" class="btn string">String</button>
+    <button routerLink="/dates" class="btn dates">Dates</button>
+    <button routerLink="/ranking" class="btn ranking">Ranking</button>
+    <button routerLink="/tcl" class="btn tcl">TCL</button>
+    <button routerLink="/case-statement" class="btn case-statement">Case Statement</button>
+    <button routerLink="/if-while" class="btn if-while">IF & WHILE</button>
+    <button routerLink="/user-defined-functions" class="btn user-defined-functions">User Defined Functions</button>
+    <button routerLink="/procedures" class="btn procedures">Procedures</button>
+  </div>
+</div>
+
+<div class="content">
+  <ng-container *ngIf="selectedSection === 'sqloverview'">
+    <app-sqloverview></app-sqloverview>
+  </ng-container>
+  <ng-container *ngIf="selectedSection === 'sqlcommands'">
+    <app-sqlcommands></app-sqlcommands>
+  </ng-container>
+  <!-- Add ng-container blocks for other sections -->
+</div>

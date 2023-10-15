@@ -1,0 +1,280 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="handleClick('data')" class="btn" [class.active-button]="activeButton === 'data'">What is Data?</button>
+        <button (click)="handleClick('before-data-database')" class="btn" [class.active-button]="activeButton === 'before-data-database'">Before Data Database?</button>
+        <button (click)="handleClick('database-types')" class="btn" [class.active-button]="activeButton === 'database-types'">What is Database? Types</button>
+        <button (click)="handleClick('sql-overview')" class="btn" [class.active-button]="activeButton === 'sql-overview'">SQL Overview</button>
+    </div>
+
+    <!-- Content area -->
+    <ng-container *ngIf="!selectedContent || selectedContent === 'data'">
+        <div class="data-content">
+            <h2 class="section-title">What is Data in a Database?</h2>
+            <p class="section-description">
+                In the context of a database (DB), data refers to the information that is stored in a structured format
+                within the database system.
+                Databases are designed to efficiently and securely store, manage, and retrieve data. Data in a database
+                is typically organized into tables, rows, and columns.
+            </p>
+            <ul>
+                <li>Tables: A table is a fundamental component of a relational database...</li>
+                <li>Rows: Rows, also known as records or tuples, are individual entries in a table...</li>
+                <li>Columns: Columns define the attributes or properties of the data stored in a table...</li>
+                <li>Data Integrity: Databases enforce data integrity by defining constraints such as primary keys...
+                </li>
+                <li>Data Retrieval: Databases provide query capabilities that allow users to retrieve specific data...
+                </li>
+                <li>Data Manipulation: Databases support operations for adding, updating, and deleting data in tables...
+                </li>
+                <li>Data Types: Data in a database can be of different types, such as text, numbers, dates, binary data,
+                    and more...</li>
+                <li>Indexes: Indexes are data structures used to optimize data retrieval. They provide a fast way to
+                    look up data...</li>
+                <li>Data Security: Databases often have mechanisms for controlling access to data, including user
+                    authentication and authorization...</li>
+                <li>Data Normalization: Data normalization is the process of organizing data in a way that reduces data
+                    redundancy...</li>
+            </ul>
+        </div>
+    </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+    <ng-container *ngIf="selectedContent === 'before-data-database'">
+        <div class="before-database-content">
+            <h2 class="section-title">Before Data Databases</h2>
+            <ul>
+                <li class="key-point">Paper Records: Before the digital age, data was often managed using physical paper
+                    records, such as handwritten or printed documents, ledgers, and files.</li>
+                <li class="key-point">File Systems: Early computing systems relied on file systems to store and manage
+                    electronic data. Data was stored in digital files, often in flat or hierarchical structures.</li>
+                <li class="key-point">Flat Files: Data was frequently stored in simple flat files, which are text-based
+                    files that store data in tabular or comma-separated formats.</li>
+                <li class="key-point">Custom Software Solutions: Organizations often developed custom software solutions
+                    to manage data. These solutions could be proprietary applications created in-house or by third-party
+                    developers to meet specific data management needs.</li>
+                <li class="key-point">Data Silos: Data was typically stored in isolated silos, making it difficult to
+                    share and integrate data across different departments or systems. This fragmentation of data often
+                    led to issues with data redundancy and inefficiencies in data management.</li>
+            </ul>
+        </div>
+    </ng-container>
+
+
+
+    <ng-container *ngIf="selectedContent === 'database-types'">
+        <div class="database-content">
+            <h2 class="section-title">What is a Database?</h2>
+            <p class="section-description">
+                A database is a structured collection of data that is organized and stored in a way that allows for
+                efficient data retrieval, management, and manipulation.
+                Databases are essential components of modern information systems, and they serve as the foundation for
+                storing and accessing data in various applications.
+            </p>
+
+            <h2 class="section-title">Types of Databases</h2>
+
+            <div class="database-type">
+                <h3 class="type-title">1. Relational Database</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> Edgar F. Codd (father of the relational model)
+                    <br>
+                    <strong>Managed by:</strong> Examples include Oracle Corporation (Oracle Database), MySQL AB
+                    (MySQL), and the PostgreSQL Global Development Group (PostgreSQL).
+                    <br>
+                    <strong>Description:</strong> Organizes data into tables with predefined schemas and enforces
+                    relationships between tables. Suitable for structured data.
+                </p>
+            </div>
+
+            <div class="database-type">
+                <h3 class="type-title">2. NoSQL Database</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> NoSQL databases are a category of databases rather than a single
+                    technology, and they emerged to address the limitations of traditional databases.
+                    <br>
+                    <strong>Managed by:</strong> Various organizations and open-source communities manage different
+                    NoSQL databases. Examples include MongoDB, Inc. (MongoDB), Apache Software Foundation (Apache
+                    Cassandra), and open-source projects (e.g., Redis).
+                    <br>
+                    <strong>Description:</strong> Suitable for unstructured or semi-structured data, NoSQL databases
+                    offer flexible schemas and support a variety of data models, including document-based, key-value,
+                    wide-column, and graph databases.
+                </p>
+            </div>
+
+            <div class="database-type">
+                <h3 class="type-title">3. Graph Database</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> Graph databases are a category, and various implementations have
+                    evolved. No specific individual or entity can be attributed as the sole founder.
+                    <br>
+                    <strong>Managed by:</strong> Neo4j, Inc. is a prominent player in the graph database space and
+                    manages Neo4j. Amazon Web Services (AWS) provides Amazon Neptune, a managed graph database service.
+                    <br>
+                    <strong>Description:</strong> Designed to represent and query data as graphs with nodes and edges,
+                    making them well-suited for data with complex relationships.
+                </p>
+            </div>
+
+            <div class="database-type">
+                <h3 class="type-title">4. Columnar Database</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> Columnar databases are a technology category, and no single founder can
+                    be identified.
+                    <br>
+                    <strong>Managed by:</strong> Apache Cassandra is an open-source project managed by the Apache
+                    Software Foundation. Amazon Redshift is a managed data warehousing service provided by AWS.
+                    <br>
+                    <strong>Description:</strong> Optimized for analytical queries and column-based storage, making them
+                    suitable for data analytics and data warehousing.
+                </p>
+            </div>
+
+            <div class="database-type">
+                <h3 class="type-title">5. In-Memory Database</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> Various in-memory database technologies exist, and their development is
+                    attributed to different individuals and organizations.
+                    <br>
+                    <strong>Managed by:</strong> Redis is an open-source project, while Oracle TimesTen is managed by
+                    Oracle Corporation.
+                    <br>
+                    <strong>Description:</strong> Stores data in the computer's main memory (RAM) for faster data
+                    retrieval, making them ideal for applications that require low-latency access to data.
+                </p>
+            </div>
+
+            <div class="database-type">
+                <h3 class="type-title">6. Document Store</h3>
+                <p class="type-description">
+                    <strong>Founded by:</strong> No specific individual or entity can be identified as the founder of
+                    the document store database model.
+                    <br>
+                    <strong>Managed by:</strong> MongoDB, Inc. manages MongoDB, and CouchDB is an open-source project.
+                    <br>
+                    <strong>Description:</strong> Stores data as documents, typically in JSON or XML format, and is
+                    well-suited for semi-structured data and use cases like content management systems.
+                </p>
+            </div>
+        </div>
+    </ng-container>
+
+
+
+    <ng-container *ngIf="selectedContent === 'sql-overview'">
+        <div class="sql-overview-content">
+            <h2 class="section-title">SQL Overview</h2>
+            <ul class="sql-points">
+                <li>SQL Definition:
+                    <ul class="sub-points">
+                        <li>SQL stands for Structured Query Language.</li>
+                        <li>It's a domain-specific language for managing and querying databases.</li>
+                    </ul>
+                </li>
+                <li>Relational Databases:
+                    <ul class="sub-points">
+                        <li>SQL is primarily used with relational database management systems (RDBMS).</li>
+                    </ul>
+                </li>
+                <li>Data Retrieval:
+                    <ul class="sub-points">
+                        <li>SELECT statement retrieves data from databases.</li>
+                    </ul>
+                </li>
+                <li>Data Modification:
+                    <ul class="sub-points">
+                        <li>SQL supports data modification with INSERT, UPDATE, and DELETE statements.</li>
+                    </ul>
+                </li>
+                <li>Data Definition:
+                    <ul class="sub-points">
+                        <li>CREATE, ALTER, and DROP statements define and manage database structure.</li>
+                    </ul>
+                </li>
+                <li>Table Operations:
+                    <ul class="sub-points">
+                        <li>CREATE TABLE defines tables with columns and constraints.</li>
+                        <li>Constraints ensure data integrity (e.g., PRIMARY KEY, FOREIGN KEY).</li>
+                    </ul>
+                </li>
+                <li>Data Filtering:
+                    <ul class="sub-points">
+                        <li>WHERE clause filters data based on conditions.</li>
+                    </ul>
+                </li>
+                <li>Sorting & Grouping:
+                    <ul class="sub-points">
+                        <li>ORDER BY sorts data, GROUP BY groups data.</li>
+                    </ul>
+                </li>
+                <li>Joining Tables:
+                    <ul class="sub-points">
+                        <li>JOIN operations combine data from multiple tables.</li>
+                    </ul>
+                </li>
+                <li>Aggregation:
+                    <ul class="sub-points">
+                        <li>Aggregation functions (SUM, AVG, COUNT) summarize data.</li>
+                    </ul>
+                </li>
+                <li>Subqueries:
+                    <ul class="sub-points">
+                        <li>Subqueries retrieve data based on another query.</li>
+                    </ul>
+                </li>
+                <li>Indexing:
+                    <ul class="sub-points">
+                        <li>Indexes enhance data retrieval performance.</li>
+                    </ul>
+                </li>
+                <li>Transactions:
+                    <ul class="sub-points">
+                        <li>SQL supports transactions for data consistency.</li>
+                    </ul>
+                </li>
+                <li>Security:
+                    <ul class="sub-points">
+                        <li>SQL enforces user access control and data security.</li>
+                    </ul>
+                </li>
+                <li>Views:
+                    <ul class="sub-points">
+                        <li>SQL views simplify complex data access.</li>
+                    </ul>
+                </li>
+                <li>Stored Procedures:
+                    <ul class="sub-points">
+                        <li>Precompiled SQL statements for performance and security.</li>
+                    </ul>
+                </li>
+                <li>Triggers:
+                    <ul class="sub-points">
+                        <li>Automated actions in response to events.</li>
+                    </ul>
+                </li>
+                <li>Normalization:
+                    <ul class="sub-points">
+                        <li>Organizing data to reduce redundancy.</li>
+                    </ul>
+                </li>
+                <li>Portability:
+                    <ul class="sub-points">
+                        <li>SQL is a standardized language used in various RDBMS.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
+</div>

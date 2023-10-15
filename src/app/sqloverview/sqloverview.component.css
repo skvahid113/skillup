@@ -1,0 +1,325 @@
+/* Style for the parent component */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Style for the navigation buttons container */
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+/* Style for the navigation buttons */
+.navigation-buttons .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Style for the buttons when hovered */
+.navigation-buttons .btn:hover {
+    background-color: #2980b9;
+}
+
+
+.typing-animation p {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid transparent;
+    /* Cursor effect */
+    animation: typing 3s steps(40, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-right: 3px solid #000;
+        /* Cursor color */
+    }
+
+    50% {
+        border-right: 3px solid transparent;
+        /* Cursor effect */
+    }
+}
+
+
+/* Style for the entire content container */
+.database-content {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Style for section titles (What is a Database?, Types of Databases) */
+.section-title {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+/* Style for type titles (1. Relational Database, 2. NoSQL Database, etc.) */
+.type-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 0;
+}
+
+/* Style for type descriptions */
+.type-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Style for each database type section */
+.database-type {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Style for the entire content container */
+.before-database-content {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Style for section titles (Before Data Databases) */
+.section-title {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+/* Style for key points in the list */
+.key-point {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Style for the list */
+ul {
+    list-style-type: disc;
+    /* Use disc bullets for the list items */
+    padding-left: 20px;
+    /* Add some padding for the list */
+}
+
+/* Add more styling as needed */
+
+
+
+/* Style for the entire content container */
+.data-content {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Style for section titles (What is Data in a Database?) */
+.section-title {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+/* Style for the introductory description */
+.section-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Style for the typewriter animation */
+.typing-animation {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Style for each line of the typewriter animation */
+.animated-line {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    animation: typing 1.5s steps(40, end), blink-caret 0.5s step-end infinite;
+}
+
+/* Style for key concepts (Tables, Columns, Rows, etc.) */
+.animated-line strong {
+    font-weight: bold;
+    font-size: 1.2rem;
+    /* Increase font size for key concepts */
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+}
+
+/* Add more styling as needed */
+
+
+/* Style for the entire content container */
+/* Style for the entire content container, including all content */
+.sql-overview-content {
+    background-color: #f2f2f2;
+    /* Gray background color */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: auto;
+}
+
+/* Rest of the CSS remains the same */
+
+
+/* Style for section titles (SQL Overview) */
+.section-title {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+/* Style for the list of SQL points */
+.sql-points {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Style for main SQL points */
+.sql-points>li {
+    font-size: 1.2rem;
+    /* Increase font size for main points */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Style for sub-points */
+.sub-points {
+    list-style-type: disc;
+    /* Use disc bullets for sub-points */
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+/* Add more styling as needed */
+
+
+/* Example CSS */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+    /* Adjust line height as needed */
+}
+
+ul {
+    list-style-type: disc;
+    /* Use a disc for bullet points */
+}
+
+li {
+    font-size: 14px;
+    line-height: 1.3;
+    /* Adjust line height as needed */
+}
+
+@keyframes progress {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.active-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #fc00ff, #00dbde);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.active-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #007bff);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    filter: opacity(1);
+    transform: scaleX(0);
+    transform-origin: right;
+    animation: progress 5s linear infinite;
+}
+
+.active-button:hover {
+    background-position: -100% 0;
+}
+
