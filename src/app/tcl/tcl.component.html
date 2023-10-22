@@ -1,0 +1,24 @@
+<div class="tcl-container sql-style">
+    <div class="button-container">
+      <button
+        class="category-button sql-button"
+        *ngFor="let tclFunction of tclFunctions"
+        (click)="selectFunction(tclFunction.title)"
+        [ngClass]="{'active-category-button': tclFunction.title === selectedFunction?.title}">
+        {{ tclFunction.title }}
+      </button>
+    </div>
+  
+    <div *ngIf="selectedFunction" class="tcl-content">
+      <h2 class="sql-title">{{ selectedFunction.title }}</h2>
+      <p class="description">{{ selectedFunction.description }}</p>
+      <p class="syntax">Syntax: <code>{{ selectedFunction.syntax }}</code></p>
+      <p class="sql-title">SQL Examples:</p>
+      <ul>
+        <li *ngFor="let example of selectedFunction.sqlExamples" class="sql-example">{{ example }}</li>
+      </ul>
+      <p class="sql-title">SQL Output:</p>
+      <p class="sql-code">{{ selectedFunction.sqlOutput }}</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+.if-while-container {
+    background-color: #f2f2f2; /* Professional background color */
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .sql-container {
+    background-color: #fff; /* White background for SQL blocks */
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .sql-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .sql-code {
+    font-family: 'Courier New', monospace; /* Monospaced font for SQL code */
+  }
+  
+  .sql-output {
+    font-family: 'Courier New', monospace; /* Monospaced font for SQL output */
+    color: green; /* Change the color of the output to green */
+  }
+  

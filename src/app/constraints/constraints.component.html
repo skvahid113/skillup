@@ -1,0 +1,248 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="handleClick('not-null-constraint')" class="btn"
+            [class.active-button]="activeButton === 'not-null-constraint'">NOT NULL Constraint</button>
+        <button (click)="handleClick('default-constraint')" class="btn"
+            [class.active-button]="activeButton === 'default-constraint'">DEFAULT Constraint</button>
+        <button (click)="handleClick('check-constraint')" class="btn"
+            [class.active-button]="activeButton === 'check-constraint'">CHECK Constraint</button>
+        <button (click)="handleClick('unique-constraint')" class="btn"
+            [class.active-button]="activeButton === 'unique-constraint'">UNIQUE Constraint</button>
+        <button (click)="handleClick('primary-key-constraint')" class="btn"
+            [class.active-button]="activeButton === 'primary-key-constraint'">PRIMARY KEY Constraint</button>
+        <button (click)="handleClick('foreign-key-constraint')" class="btn"
+            [class.active-button]="activeButton === 'foreign-key-constraint'">FOREIGN KEY Constraint</button>
+    </div>
+
+    <!-- Content area -->
+    <ng-container *ngIf="!selectedContent || selectedContent === 'not-null-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">NOT NULL Constraint</h2>
+            <p class="description">The NOT NULL constraint enforces that a column cannot contain NULL values, meaning
+                that every row must have a non-null value in that column.</p>
+            <p class="syntax">Syntax: <code>column_name data_type NOT NULL</code></p>
+            <ul class="examples">
+                <li>Ensuring that the 'username' column in a 'User' table cannot be NULL:</li>
+                <pre><code>
+CREATE TABLE User (
+  UserID INT PRIMARY KEY,
+  Username VARCHAR(50) NOT NULL,
+  -- Other columns...
+);
+                </code></pre>
+                <li>Requiring the 'email' column in a 'Customer' table to be non-null:</li>
+                <pre><code>
+CREATE TABLE Customer (
+  CustomerID INT PRIMARY KEY,
+  Email VARCHAR(100) NOT NULL,
+  -- Other columns...
+);
+                </code></pre>
+                <li>Forcing the 'product_name' column in a 'Product' table to have a non-null value:</li>
+                <pre><code>
+CREATE TABLE Product (
+  ProductID INT PRIMARY KEY,
+  ProductName VARCHAR(255) NOT NULL,
+  -- Other columns...
+);
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'default-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">DEFAULT Constraint</h2>
+            <p class="description">The DEFAULT constraint allows you to specify a default value for a column when no
+                value is explicitly provided during an INSERT operation.</p>
+            <p class="syntax">Syntax: <code>column_name data_type DEFAULT default_value</code></p>
+            <ul class="examples">
+                <li>Setting a default value of 'active' for the 'status' column in a 'User' table:</li>
+                <pre><code>
+CREATE TABLE User (
+  UserID INT PRIMARY KEY,
+  Username VARCHAR(50),
+  Status VARCHAR(20) DEFAULT 'active',
+  -- Other columns...
+);
+                </code></pre>
+                <li>Defining a default value of 'N/A' for the 'middle_name' column in an 'Employee' table:</li>
+                <pre><code>
+CREATE TABLE Employee (
+  EmployeeID INT PRIMARY KEY,
+  FirstName VARCHAR(50),
+  MiddleName VARCHAR(50) DEFAULT 'N/A',
+  -- Other columns...
+);
+                </code></pre>
+                <li>Using a default value of 0 for the 'points' column in a 'Player' table:</li>
+                <pre><code>
+CREATE TABLE Player (
+  PlayerID INT PRIMARY KEY,
+  PlayerName VARCHAR(50),
+  Points INT DEFAULT 0,
+  -- Other columns...
+);
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'check-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">CHECK Constraint</h2>
+            <p class="description">The CHECK constraint allows you to specify a condition that values in a column must
+                satisfy. It ensures that data entered into the column meets specific criteria.</p>
+            <p class="syntax">Syntax: <code>column_name data_type CHECK (condition)</code></p>
+            <ul class="examples">
+                <li>Enforcing that the 'age' column in a 'Person' table must be greater than or equal to 18:</li>
+                <pre><code>
+    CREATE TABLE Person (
+      PersonID INT PRIMARY KEY,
+      Name VARCHAR(50),
+      Age INT CHECK (Age >= 18),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Checking that the 'total_price' column in an 'Order' table is greater than zero:</li>
+                <pre><code>
+    CREATE TABLE Order (
+      OrderID INT PRIMARY KEY,
+      ProductName VARCHAR(100),
+      TotalPrice DECIMAL(10, 2) CHECK (TotalPrice > 0),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Using a CHECK constraint to ensure that the 'rating' column in a 'Review' table falls within a valid
+                    range:</li>
+                <pre><code>
+    CREATE TABLE Review (
+      ReviewID INT PRIMARY KEY,
+      Title VARCHAR(255),
+      Rating INT CHECK (Rating >= 1 AND Rating <= 5),
+      -- Other columns...
+    );
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'unique-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">UNIQUE Constraint</h2>
+            <p class="description">The UNIQUE constraint ensures that all values in a column are unique across rows in a
+                table. It is used to prevent duplicate entries in the specified column.</p>
+            <p class="syntax">Syntax: <code>UNIQUE (column_name)</code></p>
+            <ul class="examples">
+                <li>Applying a UNIQUE constraint to the 'email' column in a 'User' table to enforce email uniqueness:
+                </li>
+                <pre><code>
+    CREATE TABLE User (
+      UserID INT PRIMARY KEY,
+      Email VARCHAR(100) UNIQUE,
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Ensuring that the 'serial_number' column in a 'Product' table contains unique values:</li>
+                <pre><code>
+    CREATE TABLE Product (
+      ProductID INT PRIMARY KEY,
+      SerialNumber VARCHAR(50) UNIQUE,
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Using a UNIQUE constraint to enforce uniqueness in the 'ISBN' column of a 'Book' table:</li>
+                <pre><code>
+    CREATE TABLE Book (
+      BookID INT PRIMARY KEY,
+      Title VARCHAR(255),
+      ISBN VARCHAR(20) UNIQUE,
+      -- Other columns...
+    );
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'primary-key-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">PRIMARY KEY Constraint</h2>
+            <p class="description">The PRIMARY KEY constraint uniquely identifies each row in a table. It enforces the
+                uniqueness and non-null property of a column, typically used as the main identifier for a table.</p>
+            <p class="syntax">Syntax: <code>column_name data_type PRIMARY KEY</code></p>
+            <ul class="examples">
+                <li>Defining the 'employee_id' column as the primary key in an 'Employee' table:</li>
+                <pre><code>
+    CREATE TABLE Employee (
+      EmployeeID INT PRIMARY KEY,
+      FirstName VARCHAR(50),
+      LastName VARCHAR(50),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Using 'product_code' as the primary key in a 'Product' table:</li>
+                <pre><code>
+    CREATE TABLE Product (
+      ProductCode VARCHAR(10) PRIMARY KEY,
+      ProductName VARCHAR(255),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Applying the primary key constraint to the 'student_id' column in a 'Student' table:</li>
+                <pre><code>
+    CREATE TABLE Student (
+      StudentID INT PRIMARY KEY,
+      Name VARCHAR(100),
+      -- Other columns...
+    );
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'foreign-key-constraint'">
+        <div class="constraint-content">
+            <h2 class="constraint-title">FOREIGN KEY Constraint</h2>
+            <p class="description">The FOREIGN KEY constraint establishes a link between two tables by specifying that
+                values in a column must match the values in another table's primary key. It enforces referential
+                integrity.</p>
+            <p class="syntax">Syntax:
+                <code>FOREIGN KEY (column_name) REFERENCES referenced_table (referenced_column)</code></p>
+            <ul class="examples">
+                <li>Creating a foreign key constraint in the 'Order' table referencing the 'Customer' table:</li>
+                <pre><code>
+    CREATE TABLE Order (
+      OrderID INT PRIMARY KEY,
+      CustomerID INT,
+      OrderDate DATE,
+      FOREIGN KEY (CustomerID) REFERENCES Customer (CustomerID),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Enforcing a foreign key constraint in the 'Review' table referencing the 'Product' table:</li>
+                <pre><code>
+    CREATE TABLE Review (
+      ReviewID INT PRIMARY KEY,
+      ProductID INT,
+      Rating INT,
+      FOREIGN KEY (ProductID) REFERENCES Product (ProductID),
+      -- Other columns...
+    );
+                </code></pre>
+                <li>Defining a foreign key constraint in the 'Employee' table referencing the 'Department' table:</li>
+                <pre><code>
+    CREATE TABLE Employee (
+      EmployeeID INT PRIMARY KEY,
+      Name VARCHAR(100),
+      DepartmentID INT,
+      FOREIGN KEY (DepartmentID) REFERENCES Department (DepartmentID),
+      -- Other columns...
+    );
+                </code></pre>
+            </ul>
+        </div>
+    </ng-container>
+
+
+</div>

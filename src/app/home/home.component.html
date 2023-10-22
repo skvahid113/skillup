@@ -6,8 +6,8 @@
     <svg class="line-container" width="800" height="600">
         <circle *ngFor="let circle of circles; let i = index" [attr.cx]="circle.x" [attr.cy]="circle.y" r="40"
             [attr.fill]="circleColors[i]" (click)="handleCircleClick(i)" style="cursor: pointer;"></circle>
-        <text *ngFor="let label of labels; let i = index" [attr.x]="circles[i].x" [attr.y]="circles[i].y" fill="#000"
-            font-size="12" text-anchor="middle" dy="4" font-weight="bold">
+        <text *ngFor="let label of labels; let i = index" [attr.x]="circles[i].x" [attr.y]="circles[i].y - 10" fill="#000"
+            font-size="12" text-anchor="middle" font-weight="bold">
             {{ label }}
         </text>
         <line *ngFor="let circle of circles; let i = index" [attr.x1]="circle.x" [attr.y1]="circle.y" x2="400" y2="300"

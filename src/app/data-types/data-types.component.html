@@ -1,0 +1,370 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="handleClick('numeric-data-types')" class="btn"
+            [class.active-button]="activeButton === 'numeric-data-types'">Numeric Data Types</button>
+        <button (click)="handleClick('character-string-data-types')" class="btn"
+            [class.active-button]="activeButton === 'character-string-data-types'">Character String Data Types</button>
+        <button (click)="handleClick('date-time-data-types')" class="btn"
+            [class.active-button]="activeButton === 'date-time-data-types'">Date and Time Data Types</button>
+        <button (click)="handleClick('binary-data-types')" class="btn"
+            [class.active-button]="activeButton === 'binary-data-types'">Binary Data Types</button>
+    </div>
+
+    <!-- Content area -->
+    <ng-container *ngIf="!selectedContent || selectedContent === 'numeric-data-types'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">Numeric Data Types</h2>
+            <ul class="examples">
+                <li>
+                    <strong>INT (Integer):</strong>
+                    <span class="syntax">Syntax: INT</span>
+                    <p class="description">Description: The INT data type is used for storing whole numbers without
+                        fractional components. It is commonly used for representing quantities, counts, or unique
+                        identifiers.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Employee (
+  EmployeeID INT,
+  Salary INT
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>DECIMAL (Decimal):</strong>
+                    <span class="syntax">Syntax: DECIMAL(precision, scale)</span>
+                    <p class="description">Description: The DECIMAL data type is used for representing fixed-point
+                        decimal numbers with a specified precision and scale. It is ideal for financial and monetary
+                        values where precision is crucial.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Product (
+  ProductID INT,
+  Price DECIMAL(10, 2)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>FLOAT (Floating-Point):</strong>
+                    <span class="syntax">Syntax: FLOAT(precision)</span>
+                    <p class="description">Description: The FLOAT data type is used to store approximate numeric values
+                        with fractional components. It is commonly used in scientific and engineering calculations.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE SensorData (
+  ReadingID INT,
+  Value FLOAT(2)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>NUMERIC (Numeric):</strong>
+                    <span class="syntax">Syntax: NUMERIC(precision, scale)</span>
+                    <p class="description">Description: The NUMERIC data type is similar to DECIMAL, used for
+                        representing fixed-point decimal numbers with a specified precision and scale. It is suitable
+                        for exact numerical values requiring high precision.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE FinancialData (
+  TransactionID INT,
+  Amount NUMERIC(12, 4)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>SMALLINT (Small Integer):</strong>
+                    <span class="syntax">Syntax: SMALLINT</span>
+                    <p class="description">Description: The SMALLINT data type is used to store small whole numbers,
+                        often used for quantities, counts, or attributes with a limited range.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Room (
+  RoomID INT,
+  Capacity SMALLINT
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>BIGINT (Big Integer):</strong>
+                    <span class="syntax">Syntax: BIGINT</span>
+                    <p class="description">Description: The BIGINT data type is used to store very large whole numbers,
+                        making it suitable for counting large populations or generating unique identifiers.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE SocialMedia (
+  UserID BIGINT,
+  FollowersCount BIGINT
+);
+                    </code></pre>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'character-string-data-types'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">Character String Data Types</h2>
+            <ul class="examples">
+                <li>
+                    <strong>CHAR (Fixed-length character):</strong>
+                    <span class="syntax">Syntax: CHAR(length)</span>
+                    <p class="description">Description: The CHAR data type stores fixed-length strings with a specified
+                        length. It is commonly used for representing codes or identifiers with a consistent format.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Product (
+  ProductID INT,
+  SKU CHAR(10)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>VARCHAR (Variable-length character):</strong>
+                    <span class="syntax">Syntax: VARCHAR(length)</span>
+                    <p class="description">Description: The VARCHAR data type stores variable-length character strings.
+                        It is ideal for storing textual data with varying lengths, such as names, descriptions, or
+                        addresses.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Customer (
+  CustomerID INT,
+  Name VARCHAR(50)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>TEXT (Long text):</strong>
+                    <span class="syntax">Syntax: TEXT</span>
+                    <p class="description">Description: The TEXT data type is used for storing long text or
+                        document-like content, including articles, reviews, or other textual data with no predefined
+                        length limit.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Article (
+  ArticleID INT,
+  Content TEXT
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>NVARCHAR (Unicode variable-length character):</strong>
+                    <span class="syntax">Syntax: NVARCHAR(length)</span>
+                    <p class="description">Description: The NVARCHAR data type is similar to VARCHAR but stores Unicode
+                        character strings. It's suitable for multilingual or international text data.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE MultilingualData (
+  EntryID INT,
+  Text NVARCHAR(100)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>CLOB (Character Large Object):</strong>
+                    <span class="syntax">Syntax: CLOB</span>
+                    <p class="description">Description: The CLOB data type is designed for storing extremely long text
+                        or documents, such as novels, research papers, or large textual content.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Novel (
+  NovelID INT,
+  Content CLOB
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>STRING (General string type):</strong>
+                    <span class="syntax">Syntax: STRING</span>
+                    <p class="description">Description: The STRING data type represents a general-purpose string with
+                        varying length, commonly used for custom data formats, user-generated content, or flexible text
+                        fields.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE CustomData (
+  DataID INT,
+  Text STRING
+);
+                    </code></pre>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'date-time-data-types'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">Date and Time Data Types</h2>
+            <ul class="examples">
+                <li>
+                    <strong>DATE (Date):</strong>
+                    <span class="syntax">Syntax: DATE</span>
+                    <p class="description">Description: The DATE data type is used for storing calendar dates. It is
+                        commonly used for recording birthdates, event dates, and other date-related information.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Event (
+  EventID INT,
+  EventDate DATE
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>TIME (Time):</strong>
+                    <span class="syntax">Syntax: TIME</span>
+                    <p class="description">Description: The TIME data type represents a point in time within a day,
+                        useful for recording time values such as meeting times, flight departure times, or opening
+                        hours.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Meeting (
+  MeetingID INT,
+  StartTime TIME
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>DATETIME (Date and Time):</strong>
+                    <span class="syntax">Syntax: DATETIME</span>
+                    <p class="description">Description: The DATETIME data type stores both date and time components,
+                        making it suitable for recording event timestamps, sensor data timestamps, and other
+                        time-related information.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE LogEntry (
+  LogEntryID INT,
+  LogTimestamp DATETIME
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>TIMESTAMP (Timestamp with Time Zone):</strong>
+                    <span class="syntax">Syntax: TIMESTAMP WITH TIME ZONE</span>
+                    <p class="description">Description: The TIMESTAMP data type includes a time zone information, making
+                        it suitable for global event scheduling, flight schedules, and international conference call
+                        timings.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE FlightSchedule (
+  FlightID INT,
+  DepartureTime TIMESTAMP WITH TIME ZONE
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>INTERVAL (Time Interval):</strong>
+                    <span class="syntax">Syntax: INTERVAL</span>
+                    <p class="description">Description: The INTERVAL data type represents a duration between two
+                        timestamps, ideal for countdown timers, time-based notifications, and event duration
+                        calculations.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Countdown (
+  CountdownID INT,
+  TimeDuration INTERVAL
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>TIMETZ (Time with Time Zone):</strong>
+                    <span class="syntax">Syntax: TIMETZ</span>
+                    <p class="description">Description: The TIMETZ data type combines time values with time zone
+                        information, suitable for handling meeting schedules in different time zones, global broadcast
+                        schedules, and more.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE MeetingSchedule (
+  MeetingID INT,
+  MeetingTime TIMETZ
+);
+                    </code></pre>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'binary-data-types'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">Binary Data Types</h2>
+            <ul class="examples">
+                <li>
+                    <strong>BLOB (Binary Large Object):</strong>
+                    <span class="syntax">Syntax: BLOB</span>
+                    <p class="description">Description: The BLOB data type is used for storing large binary data, such
+                        as images, audio, or video files. It's commonly used for document attachments, encryption keys,
+                        or raw sensor data.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Images (
+  ImageID INT,
+  ImageData BLOB
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>BYTEA (Binary Data):</strong>
+                    <span class="syntax">Syntax: BYTEA</span>
+                    <p class="description">Description: The BYTEA data type is used for storing binary data, including
+                        image avatars, biometric data, digital signatures, and binary code or executables.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Users (
+  UserID INT,
+  ProfileImage BYTEA
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>VARBINARY (Variable-length binary):</strong>
+                    <span class="syntax">Syntax: VARBINARY(length)</span>
+                    <p class="description">Description: The VARBINARY data type stores variable-length binary data,
+                        ideal for image thumbnails, audio snippets, and custom binary formats.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE CustomData (
+  DataID INT,
+  BinaryContent VARBINARY(100)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>BIT (Bit Strings):</strong>
+                    <span class="syntax">Syntax: BIT(length)</span>
+                    <p class="description">Description: The BIT data type is used for storing binary flags, permissions,
+                        or boolean values in a compact format.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Permissions (
+  PermissionID INT,
+  AccessFlags BIT(8)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>RAW (Raw Binary Data):</strong>
+                    <span class="syntax">Syntax: RAW(length)</span>
+                    <p class="description">Description: The RAW data type is designed for low-level binary data storage,
+                        machine code, or physical sensor data.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE MachineCode (
+  CodeID INT,
+  BinaryCode RAW(64)
+);
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>IMAGE (Image Data):</strong>
+                    <span class="syntax">Syntax: IMAGE</span>
+                    <p class="description">Description: The IMAGE data type is used for storing high-resolution images,
+                        medical image data, artwork, geospatial images, or custom image formats.</p>
+                    SQL Example:
+                    <pre><code>
+CREATE TABLE Artwork (
+  ArtworkID INT,
+  ArtImage IMAGE
+);
+                    </code></pre>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+</div>

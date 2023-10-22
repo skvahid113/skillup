@@ -1,0 +1,61 @@
+.procedure-container {
+    background-color: #f4f4f4; /* Professional background color */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .procedure-info {
+    background-color: #fff; /* White background for each procedure info */
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .sql-syntax {
+    font-weight: bold;
+    color: #007acc; /* SQL keyword color */
+    margin-top: 10px;
+  }
+  
+  ul {
+    list-style: square;
+    margin-left: 20px;
+  }
+  
+  li {
+    color: #444;
+  }
+  
+  .sql-title {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .sql-code {
+    background-color: #f0f0f0; /* SQL code background color */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    margin: 10px 0;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  

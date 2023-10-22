@@ -1,0 +1,206 @@
+<ng-container *ngIf="selectedContent === 'dql'">
+    <div class="dql-content">
+
+        <!-- SELECT Accordion -->
+        <div class="accordion" id="dqlAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="selectAccordion">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#selectCollapse" aria-expanded="false">
+                        SELECT
+                    </button>
+                </h2>
+                <div id="selectCollapse" class="accordion-collapse collapse" data-bs-parent="#dqlAccordion">
+                    <div class="accordion-body">
+                        <!-- Description for SELECT statement -->
+                        <div class="sql-description">
+                            <p>
+                                The SELECT statement in SQL is used to retrieve data from one or more tables.
+                            </p>
+                        </div>
+
+                        <!-- SQL Syntax for SELECT -->
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">SELECT</strong></p>
+                            <ul>
+                                <li><span class="sql-identifier">column1, column2, ...</span> <span class="sql-comment">-- List of columns to select</span></li>
+                                <li><strong class="sql-keyword">FROM</strong> <span class="sql-identifier">table_name</span> <span class="sql-comment">-- Table to retrieve data from</span></li>
+                                <!-- Add other clauses (WHERE, JOIN, etc.) as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- SQL Examples for SELECT -->
+                        <div class="sql-description">
+                            <p>Examples:</p>
+                        </div>
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">first_name, last_name</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">product_name, price</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">products</span> <strong class="sql-keyword">WHERE</strong> <span class="sql-condition">category_id = 1;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">order_id, order_date, total_amount</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">orders;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">product_name, price</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">products</span> <strong class="sql-keyword">ORDER BY</strong> <span class="sql-identifier">price DESC;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">employee_name, hire_date</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees</span> <strong class="sql-keyword">ORDER BY</strong> <span class="sql-identifier">hire_date ASC;</span></p>
+                            <!-- Add more examples as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FROM Accordion -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="fromAccordion">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#fromCollapse" aria-expanded="false">
+                        FROM
+                    </button>
+                </h2>
+                <div id="fromCollapse" class="accordion-collapse collapse" data-bs-parent="#dqlAccordion">
+                    <div class="accordion-body">
+                        <!-- Description for FROM statement -->
+                        <div class="sql-description">
+                            <p>
+                                The FROM statement specifies the table or tables from which data is retrieved.
+                            </p>
+                        </div>
+
+                        <!-- SQL Syntax for FROM -->
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">FROM</strong></p>
+                            <ul>
+                                <li><span class="sql-identifier">table_name</span> <span class="sql-comment">-- Name of the table</span></li>
+                                <!-- Add more tables and join clauses as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- SQL Examples for FROM -->
+                        <div class="sql-description">
+                            <p>Examples:</p>
+                        </div>
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">FROM</strong> <span class="sql-identifier">customers;</span></p>
+                            <p><strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees e</span> <strong class="sql-keyword">JOIN</strong> <span class="sql-identifier">departments d</span> <strong class="sql-keyword">ON</strong> <span class="sql-condition">e.department_id = d.department_id;</span></p>
+                            <!-- Add more examples as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GROUP BY Accordion -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="groupByAccordion">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#groupByCollapse" aria-expanded="false">
+                        GROUP BY
+                    </button>
+                </h2>
+                <div id="groupByCollapse" class="accordion-collapse collapse" data-bs-parent="#dqlAccordion">
+                    <div class="accordion-body">
+                        <!-- Description for GROUP BY statement -->
+                        <div class="sql-description">
+                            <p>
+                                The GROUP BY statement is used to group rows that have the same values into summary rows.
+                            </p>
+                        </div>
+
+                        <!-- SQL Syntax for GROUP BY -->
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">GROUP BY</strong></p>
+                            <ul>
+                                <li><span class="sql-identifier">column1, column2, ...</span> <span class="sql-comment">-- Columns to group by</span></li>
+                                <!-- Add more grouping conditions as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- SQL Examples for GROUP BY -->
+                        <div class="sql-description">
+                            <p>Examples:</p>
+                        </div>
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">department, AVG(salary)</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees</span> <strong class="sql-keyword">GROUP BY</strong> <span class="sql-identifier">department;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">category, COUNT(*)</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">products</span> <strong class="sql-keyword">GROUP BY</strong> <span class="sql-identifier">category;</span></p>
+                            <!-- Add more examples as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HAVING Accordion -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="havingAccordion">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#havingCollapse" aria-expanded="false">
+                        HAVING
+                    </button>
+                </h2>
+                <div id="havingCollapse" class="accordion-collapse collapse" data-bs-parent="#dqlAccordion">
+                    <div class="accordion-body">
+                        <!-- Description for HAVING statement -->
+                        <div class="sql-description">
+                            <p>
+                                The HAVING statement is used to filter the results of a GROUP BY clause.
+                            </p>
+                        </div>
+
+                        <!-- SQL Syntax for HAVING -->
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">HAVING</strong></p>
+                            <ul>
+                                <li><span class="sql-condition">aggregate_function(column) condition;</span> <span class="sql-comment">-- Condition to filter grouped data</span></li>
+                                <!-- Add more conditions as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- SQL Examples for HAVING -->
+                        <div class="sql-description">
+                            <p>Examples:</p>
+                        </div>
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">department, AVG(salary)</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees</span> <strong class="sql-keyword">GROUP BY</strong> <span class="sql-identifier">department</span> <strong class="sql-keyword">HAVING</strong> <span class="sql-condition">AVG(salary) > 50000;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">category, COUNT(*)</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">products</span> <strong class="sql-keyword">GROUP BY</strong> <span class="sql-identifier">category</span> <strong class="sql-keyword">HAVING</strong> <span class="sql-condition">COUNT(*) > 5;</span></p>
+                            <!-- Add more examples as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER BY Accordion -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="orderByAccordion">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#orderByCollapse" aria-expanded="false">
+                        ORDER BY
+                    </button>
+                </h2>
+                <div id="orderByCollapse" class="accordion-collapse collapse" data-bs-parent="#dqlAccordion">
+                    <div class="accordion-body">
+                        <!-- Description for ORDER BY statement -->
+                        <div class="sql-description">
+                            <p>
+                                The ORDER BY statement is used to sort the result set in ascending or descending order.
+                            </p>
+                        </div>
+
+                        <!-- SQL Syntax for ORDER BY -->
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">ORDER BY</strong></p>
+                            <ul>
+                                <li><span class="sql-identifier">column1 ASC/DESC, column2 ASC/DESC, ...</span> <span class="sql-comment">-- Columns to sort by</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- SQL Examples for ORDER BY -->
+                        <div class="sql-description">
+                            <p>Examples:</p>
+                        </div>
+                        <div class="sql-editor">
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">product_name, price</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">products</span> <strong class="sql-keyword">ORDER BY</strong> <span class="sql-identifier">price DESC;</span></p>
+                            <p><strong class="sql-keyword">SELECT</strong> <span class="sql-identifier">employee_name, hire_date</span> <strong class="sql-keyword">FROM</strong> <span class="sql-identifier">employees</span> <strong class="sql-keyword">ORDER BY</strong> <span class="sql-identifier">hire_date ASC;</span></p>
+                            <!-- Add more examples as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for other DQL commands goes here -->
+    </div>
+</ng-container>

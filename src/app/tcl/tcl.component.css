@@ -1,0 +1,74 @@
+/* Apply a professional background */
+.tcl-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  /* Style for Tcl buttons with SQL-like feel */
+  .category-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #888888;
+    transition: background-color 0.3s;
+  }
+  
+  .category-button:hover {
+    background-color: #45a049; /* Darker shade when hovered */
+  }
+  
+  /* Style for the selected Tcl function title */
+  h2 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  /* Style for Tcl function description */
+  .description {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for Tcl syntax */
+  .sql-syntax {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  /* Style for SQL Examples title */
+  .sql-title {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  
+  /* Style for individual SQL examples */
+  li {
+    font-size: 16px;
+  }
+  
+  /* Style for SQL Output title */
+  .sql-title {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  
+  /* Style for SQL Output */
+  .sql-code {
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  /* Add a subtle box-shadow to the selected function */
+  .active-category-button {
+    box-shadow: 2px 2px 4px #888888;
+  }
+  

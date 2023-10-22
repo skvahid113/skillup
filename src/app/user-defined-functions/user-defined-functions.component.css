@@ -1,0 +1,33 @@
+/* Add this CSS to your component's CSS file */
+.user-defined-functions-container {
+    background-color: #f4f4f4; /* Professional background color */
+    padding: 20px;
+  }
+  
+  .user-defined-function {
+    background-color: #ffffff; /* White background for each function box */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for each box */
+  }
+  
+  .user-defined-function h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .sql-title {
+    font-weight: bold;
+  }
+  
+  .sql-code {
+    font-family: 'Courier New', monospace; /* Use a monospaced font for SQL code */
+  }
+  
+  ul {
+    list-style-type: square; /* Use square bullets for examples */
+    padding-left: 20px;
+  }
+  

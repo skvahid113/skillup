@@ -1,0 +1,837 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="handleClick('inner-join')" class="btn"
+            [class.active-button]="activeButton === 'inner-join'">Inner Join</button>
+        <button (click)="handleClick('left-join')" class="btn" [class.active-button]="activeButton === 'left-join'">Left
+            Outer Join</button>
+        <button (click)="handleClick('right-join')" class="btn"
+            [class.active-button]="activeButton === 'right-join'">Right Outer Join</button>
+        <button (click)="handleClick('full-join')" class="btn" [class.active-button]="activeButton === 'full-join'">Full
+            Outer Join</button>
+        <button (click)="handleClick('cross-join')" class="btn"
+            [class.active-button]="activeButton === 'cross-join'">Cross Join</button>
+    </div>
+
+    <!-- Content area for Inner Join -->
+    <ng-container *ngIf="!selectedContent || selectedContent === 'inner-join'">
+        <div class="join-content">
+            <h2 class="join-title">Inner Join</h2>
+            <p class="join-description">
+                An Inner Join returns only the matching rows from both tables involved in the join. It retrieves rows
+                where there is a match between the specified columns in both tables.
+            </p>
+
+            <!-- Create Customers Table Query -->
+            <h3>Create Customers Table Query</h3>
+            <p class="join-explanation">
+                CREATE TABLE Customers (
+                CustomerID INT PRIMARY KEY,
+                CustomerName VARCHAR(255)
+                );
+            </p>
+
+            <!-- Create Orders Table Query -->
+            <h3>Create Orders Table Query</h3>
+            <p class="join-explanation">
+                CREATE TABLE Orders (
+                OrderID INT PRIMARY KEY,
+                CustomerID INT,
+                FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+                );
+            </p>
+
+            <!-- Insert Queries for Customers Table -->
+            <h3>Insert Queries for Customers Table</h3>
+            <p class="join-explanation">
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (3, 'Customer 3');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (4, 'Customer 4');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (5, 'Customer 5');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (6, 'Customer 6');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (7, 'Customer 7');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (8, 'Customer 8');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (9, 'Customer 9');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (10, 'Customer 10');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (11, 'Customer 11');
+                INSERT INTO Customers (CustomerID, CustomerName) VALUES (12, 'Customer 12');
+            </p>
+
+            <!-- Insert Queries for Orders Table -->
+            <h3>Insert Queries for Orders Table</h3>
+            <p class="join-explanation">
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (103, 3);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (104, 4);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (105, 5);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (106, 6);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (107, 7);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (108, 8);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (109, 9);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (110, 10);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (111, 11);
+                INSERT INTO Orders (OrderID, CustomerID) VALUES (112, 12);
+            </p>
+
+            <!-- Output Tables after Inserting -->
+            <h3>Output Tables after Inserting</h3>
+            <h4>Customers Table</h4>
+            <table class="join-table">
+                <tr>
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                </tr>
+                <!-- Add 10 customer records (after inserting) here -->
+                <tr>
+                    <td>3</td>
+                    <td>Customer 3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Customer 4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Customer 5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Customer 6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Customer 7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Customer 8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Customer 9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Customer 10</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Customer 11</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Customer 12</td>
+                </tr>
+            </table>
+
+            <h4>Orders Table</h4>
+            <table class="join-table">
+                <tr>
+                    <th>OrderID</th>
+                    <th>CustomerID</th>
+                </tr>
+                <!-- Add 10 order records (after inserting) here -->
+                <tr>
+                    <td>103</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>105</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>106</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>107</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>108</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>109</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>110</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>111</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>112</td>
+                    <td>12</td>
+                </tr>
+            </table>
+
+            <!-- SQL Join Query and Explanation -->
+            <h3>Inner Join Query</h3>
+            <p class="join-explanation">
+                -- Add SQL Inner Join query between Customers and Orders
+                SELECT Customers.CustomerID, CustomerName, OrderID
+                FROM Customers
+                INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+            </p>
+
+            <!-- Output Table after Join Query -->
+            <!-- Output Table after Join Query -->
+            <h3>Inner Join Output</h3>
+            <table class="join-table">
+                <tr>
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                    <th>OrderID</th>
+                </tr>
+                <!-- Add 10 matching customer and order records (after the join query) here -->
+                <tr>
+                    <td>3</td>
+                    <td>Customer 3</td>
+                    <td>103</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Customer 4</td>
+                    <td>104</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Customer 5</td>
+                    <td>105</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Customer 6</td>
+                    <td>106</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Customer 7</td>
+                    <td>107</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Customer 8</td>
+                    <td>108</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Customer 9</td>
+                    <td>109</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Customer 10</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Customer 11</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Customer 12</td>
+                    <td>112</td>
+                </tr>
+            </table>
+
+
+            <p class="join-explanation">
+                Explanation: In this Inner Join example, we combine customer data with their orders, showing only the
+                matching rows where the "CustomerID" in both tables matches. It includes columns from both "Customers"
+                and "Orders" tables in the output.
+            </p>
+        </div>
+    </ng-container>
+
+   <!-- Content area for Left Outer Join -->
+<ng-container *ngIf="!selectedContent || selectedContent === 'left-join'">
+    <div class="join-content">
+        <h2 class="join-title">Left Outer Join</h2>
+        <p class="join-description">
+            A Left Outer Join returns all rows from the left table and the matching rows from the right table. If
+            there's no match, NULL values are returned for the right table.
+        </p>
+
+        <!-- Create Customers Table Query -->
+        <h3>Create Customers Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Customers (
+            CustomerID INT PRIMARY KEY,
+            CustomerName VARCHAR(255)
+            );
+        </p>
+
+        <!-- Create Orders Table Query -->
+        <h3>Create Orders Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Orders (
+            OrderID INT PRIMARY KEY,
+            CustomerID INT,
+            FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+            );
+        </p>
+
+        <!-- Insert Queries for Customers Table -->
+        <h3>Insert Queries for Customers Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (1, 'Customer 1');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (2, 'Customer 2');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (3, 'Customer 3');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (4, 'Customer 4');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (5, 'Customer 5');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (6, 'Customer 6');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (7, 'Customer 7');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (8, 'Customer 8');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (9, 'Customer 9');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (10, 'Customer 10');
+        </p>
+
+        <!-- Insert Queries for Orders Table -->
+        <h3>Insert Queries for Orders Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (101, 1);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (102, 2);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (103, 3);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (104, 4);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (105, 5);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (106, 6);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (107, 7);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (108, 8);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (109, 9);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (110, 10);
+        </p>
+
+        <!-- Output Tables after Inserting -->
+        <h3>Output Tables after Inserting</h3>
+        <h4>Customers Table</h4>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Customer 1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Customer 2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Customer 3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Customer 4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Customer 5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Customer 6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Customer 7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Customer 8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Customer 9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Customer 10</td>
+            </tr>
+        </table>
+
+        <h4>Orders Table</h4>
+        <table class="join-table">
+            <tr>
+                <th>OrderID</th>
+                <th>CustomerID</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>10</td>
+            </tr>
+        </table>
+
+        <!-- SQL Left Outer Join Query and Explanation -->
+        <h3>Left Outer Join Query</h3>
+        <p class="join-explanation sql-query">
+            -- Add SQL Left Outer Join query between Customers and Orders
+            SELECT Customers.CustomerID, CustomerName, OrderID
+            FROM Customers
+            LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+        </p>
+
+        <!-- Output Table after Left Outer Join Query -->
+        <h3>Left Outer Join Output</h3>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>OrderID</th>
+            </tr>
+            <!-- Add 10 matching customer and order records (after the Left Outer Join query) here -->
+            <!-- Include the matching records after performing the Left Outer Join query -->
+        </table>
+
+        <p class="join-explanation">
+            Explanation: In this Left Outer Join example, we retrieve all customer data and their matching orders. If
+            there's no match, NULL values are shown for the OrderID. It includes columns from both "Customers" and "Orders"
+            tables in the output.
+        </p>
+    </div>
+</ng-container>
+
+    <!-- Content area for Left Outer Join -->
+<ng-container *ngIf="!selectedContent || selectedContent === 'left-join'">
+    <div class="join-content">
+        <h2 class="join-title">Left Outer Join</h2>
+        <p class="join-description">
+            A Left Outer Join returns all rows from the left table and the matching rows from the right table. If there's no match, NULL values are returned for the right table.
+        </p>
+
+        <!-- Create Customers Table Query -->
+        <h3>Create Customers Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Customers (
+            CustomerID INT PRIMARY KEY,
+            CustomerName VARCHAR(255)
+            );
+        </p>
+
+        <!-- Create Orders Table Query -->
+        <h3>Create Orders Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Orders (
+            OrderID INT PRIMARY KEY,
+            CustomerID INT,
+            FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+            );
+        </p>
+
+        <!-- Insert Queries for Customers Table -->
+        <h3>Insert Queries for Customers Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (1, 'Customer 1');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (2, 'Customer 2');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (3, 'Customer 3');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (4, 'Customer 4');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (5, 'Customer 5');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (6, 'Customer 6');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (7, 'Customer 7');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (8, 'Customer 8');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (9, 'Customer 9');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (10, 'Customer 10');
+        </p>
+
+        <!-- Insert Queries for Orders Table -->
+        <h3>Insert Queries for Orders Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (101, 1);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (102, 2);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (103, 3);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (104, 4);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (105, 5);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (106, 6);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (107, 7);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (108, 8);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (109, 9);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (110, 10);
+        </p>
+
+        <!-- Output Tables after Inserting -->
+        <h3>Output Tables after Inserting</h3>
+        <h4>Customers Table</h4>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Customer 1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Customer 2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Customer 3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Customer 4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Customer 5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Customer 6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Customer 7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Customer 8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Customer 9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Customer 10</td>
+            </tr>
+        </table>
+
+        <h4>Orders Table</h4>
+        <table class="join-table">
+            <tr>
+                <th>OrderID</th>
+                <th>CustomerID</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>10</td>
+            </tr>
+        </table>
+
+        <!-- SQL Left Outer Join Query and Explanation -->
+        <h3>Left Outer Join Query</h3>
+        <p class="join-explanation sql-query">
+            -- Add SQL Left Outer Join query between Customers and Orders
+            SELECT Customers.CustomerID, CustomerName, OrderID
+            FROM Customers
+            LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+        </p>
+
+        <!-- Left Outer Join Output Table -->
+        <h3>Left Outer Join Output</h3>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>OrderID</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Customer 1</td>
+                <td>101</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Customer 2</td>
+                <td>102</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Customer 3</td>
+                <td>103</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Customer 4</td>
+                <td>104</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Customer 5</td>
+                <td>105</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Customer 6</td>
+                <td>106</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Customer 7</td>
+                <td>107</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Customer 8</td>
+                <td>108</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Customer 9</td>
+                <td>109</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Customer 10</td>
+                <td>null</td>
+            </tr>
+        </table>
+
+        <p class="join-explanation">
+            Explanation: In this Left Outer Join example, we retrieve all customer data and their matching orders. If there's no match, NULL values are shown for the OrderID. It includes columns from both "Customers" and "Orders" tables in the output.
+        </p>
+    </div>
+</ng-container>
+
+<!-- Content area for Full Outer Join -->
+<ng-container *ngIf="!selectedContent || selectedContent === 'full-join'">
+    <div class="join-content">
+        <h2 class="join-title">Full Outer Join</h2>
+        <p class="join-description">
+            A Full Outer Join returns all rows when there is a match in either the left or the right table. If there's no match, NULL values are returned for the non-matching table.
+        </p>
+
+        <!-- Create Customers Table Query -->
+        <h3>Create Customers Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Customers (
+            CustomerID INT PRIMARY KEY,
+            CustomerName VARCHAR(255)
+            );
+        </p>
+
+        <!-- Create Orders Table Query -->
+        <h3>Create Orders Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Orders (
+            OrderID INT PRIMARY KEY,
+            CustomerID INT,
+            FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+            );
+        </p>
+
+        <!-- Insert Queries for Customers Table -->
+        <h3>Insert Queries for Customers Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (1, 'Customer 1');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (2, 'Customer 2');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (3, 'Customer 3');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (4, 'Customer 4');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (5, 'Customer 5');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (6, 'Customer 6');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (7, 'Customer 7');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (8, 'Customer 8');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (9, 'Customer 9');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (10, 'Customer 10');
+        </p>
+
+        <!-- Insert Queries for Orders Table -->
+        <h3>Insert Queries for Orders Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (101, 1);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (102, 2);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (103, 3);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (104, 4);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (105, 5);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (106, 6);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (107, 7);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (108, 8);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (109, 9);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (110, 10);
+        </p>
+
+        <!-- SQL Full Outer Join Query and Explanation -->
+        <h3>Full Outer Join Query</h3>
+        <p class="join-explanation sql-query">
+            -- Add SQL Full Outer Join query between Customers and Orders
+            SELECT Customers.CustomerID, CustomerName, OrderID
+            FROM Customers
+            FULL OUTER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+        </p>
+
+        <!-- Full Outer Join Output Table -->
+        <h3>Full Outer Join Output</h3>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>OrderID</th>
+            </tr>
+            <!-- Include all matching customer and order records (after the Full Outer Join query) here -->
+            <!-- Include NULL values for non-matching records -->
+        </table>
+
+        <p class="join-explanation">
+            Explanation: In this Full Outer Join example, we retrieve all customer data and their matching orders, or all order data and their matching customers. If there's no match, NULL values are shown for the non-matching columns. It includes columns from both "Customers" and "Orders" tables in the output.
+        </p>
+    </div>
+</ng-container>
+
+
+    <!-- Content area for Cross Join -->
+<ng-container *ngIf="!selectedContent || selectedContent === 'cross-join'">
+    <div class="join-content">
+        <h2 class="join-title">Cross Join</h2>
+        <p class="join-description">
+            A Cross Join (Cartesian Join) returns the Cartesian product of two tables, which means it combines every row from the first table with every row from the second table.
+        </p>
+
+        <!-- Create Customers Table Query -->
+        <h3>Create Customers Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Customers (
+            CustomerID INT PRIMARY KEY,
+            CustomerName VARCHAR(255)
+            );
+        </p>
+
+        <!-- Create Orders Table Query -->
+        <h3>Create Orders Table Query</h3>
+        <p class="join-explanation">
+            CREATE TABLE Orders (
+            OrderID INT PRIMARY KEY,
+            CustomerID INT,
+            FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+            );
+        </p>
+
+        <!-- Insert Queries for Customers Table -->
+        <h3>Insert Queries for Customers Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (1, 'Customer 1');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (2, 'Customer 2');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (3, 'Customer 3');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (4, 'Customer 4');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (5, 'Customer 5');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (6, 'Customer 6');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (7, 'Customer 7');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (8, 'Customer 8');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (9, 'Customer 9');
+            INSERT INTO Customers (CustomerID, CustomerName) VALUES (10, 'Customer 10');
+        </p>
+
+        <!-- Insert Queries for Orders Table -->
+        <h3>Insert Queries for Orders Table</h3>
+        <p class="join-explanation">
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (101, 1);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (102, 2);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (103, 3);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (104, 4);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (105, 5);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (106, 6);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (107, 7);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (108, 8);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (109, 9);
+            INSERT INTO Orders (OrderID, CustomerID) VALUES (110, 10);
+        </p>
+
+        <!-- SQL Cross Join Query and Explanation -->
+        <h3>Cross Join Query</h3>
+        <p class="join-explanation sql-query">
+            -- Add SQL Cross Join query between Customers and Orders
+            SELECT Customers.CustomerID, CustomerName, OrderID
+            FROM Customers
+            CROSS JOIN Orders;
+        </p>
+
+        <!-- Cross Join Output Table -->
+        <h3>Cross Join Output</h3>
+        <table class="join-table">
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>OrderID</th>
+            </tr>
+            <!-- Include all possible combinations of customer and order records -->
+        </table>
+
+        <p class="join-explanation">
+            Explanation: In this Cross Join (Cartesian Join) example, we combine every row from the "Customers" table with every row from the "Orders" table, resulting in all possible combinations. It does not consider matching criteria and creates a large result set.
+        </p>
+    </div>
+</ng-container>
+
+</div>

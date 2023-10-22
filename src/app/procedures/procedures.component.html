@@ -1,0 +1,12 @@
+<div class="procedure-container">
+    <div class="procedure-info" *ngFor="let procedure of procedures">
+      <h2>{{ procedure.description }}</h2>
+      <p class="sql-syntax">Syntax: {{ procedure.syntax }}</p>
+      <ul>
+        <li *ngFor="let example of procedure.examples">{{ example }}</li>
+      </ul>
+      <p class="sql-title">SQL Example:</p>
+      <pre class="sql-code">{{ procedure.sqlExample }}</pre>
+    </div>
+  </div>
+  

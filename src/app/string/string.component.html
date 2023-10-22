@@ -1,0 +1,29 @@
+<div class="sql-container">
+    <div class="button-container">
+      <div class="button-row" *ngFor="let row of buttonRows">
+        <button
+          class="category-button"
+          *ngFor="let category of row"
+          (click)="showCategory(category.title)"
+          [ngClass]="{'active-category-button': category.title === selectedCategory?.title}">
+          {{ category.title }}
+        </button>
+      </div>
+    </div>
+  
+    <div class="category-details" *ngIf="selectedCategory">
+      <h2 class="category-title">{{ selectedCategory.title }}</h2>
+      <p>{{ selectedCategory.description }}</p>
+      <div class="sql-container">
+        <h3 class="sql-title">Syntax:</h3>
+        <p class="sql-code">{{ selectedCategory.syntax }}</p>
+      </div>
+      <div class="sql-container">
+        <h3 class="sql-title">Examples:</h3>
+        <ul>
+          <li *ngFor="let example of selectedCategory.examples">{{ example }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

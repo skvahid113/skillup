@@ -1,0 +1,209 @@
+<div class="content">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button (click)="handleClick('isnull')" class="btn"
+            [class.active-button]="activeButton === 'isnull'">ISNULL</button>
+        <button (click)="handleClick('is-null')" class="btn" [class.active-button]="activeButton === 'is-null'">IS
+            Null</button>
+        <button (click)="handleClick('coalesce')" class="btn"
+            [class.active-button]="activeButton === 'coalesce'">COALESCE</button>
+        <button (click)="handleClick('nullif')" class="btn"
+            [class.active-button]="activeButton === 'nullif'">NULLIF</button>
+    </div>
+
+    <!-- Content area -->
+    <ng-container *ngIf="selectedContent === 'isnull'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">ISNULL</h2>
+            <ul class="examples">
+                <li>
+                    <strong>ISNULL (Expression, Value):</strong>
+                    <span class="syntax">Syntax: ISNULL(expression, value)</span>
+                    <p class="description">Description: The ISNULL function returns the specified value if the
+                        expression is NULL. It is often used to handle NULL values gracefully by providing a default
+                        value.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT ProductName, ISNULL(DiscountedPrice, RegularPrice) AS Price
+FROM Products;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| ProductName    | Price     |
+| --------------- | --------- |
+| Product 1       | 10.00     |
+| Product 2       | 15.00     |
+| Product 3       | 8.00      |
+| Product 4       | 20.00     |
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>ISNULL (Expression, 'N/A'):</strong>
+                    <span class="syntax">Syntax: ISNULL(expression, 'N/A')</span>
+                    <p class="description">Description: In this example, we use 'N/A' as the default value to replace
+                        NULL values.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT CustomerName, ISNULL(PhoneNumber, 'N/A') AS Contact
+FROM Customers;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| CustomerName   | Contact   |
+| --------------- | --------- |
+| Customer 1      | 123-4567  |
+| Customer 2      | N/A       |
+| Customer 3      | 987-6543  |
+                    </code></pre>
+                </li>
+                <!-- Add more ISNULL examples here -->
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'is-null'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">IS Null</h2>
+            <ul class="examples">
+                <li>
+                    <strong>IS Null (Column):</strong>
+                    <span class="syntax">Syntax: Column IS NULL</span>
+                    <p class="description">Description: The IS NULL condition checks if a column's value is NULL. It is
+                        commonly used in WHERE clauses to filter rows with NULL values.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT EmployeeName
+FROM Employees
+WHERE Supervisor IS NULL;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| EmployeeName    |
+| --------------- |
+| John            |
+| Alice           |
+| Bob             |
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>IS Null (Status):</strong>
+                    <span class="syntax">Syntax: Status IS NULL</span>
+                    <p class="description">Description: In this example, we filter records where the 'Status' column is
+                        NULL, indicating unprocessed data.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT OrderID, OrderDate
+FROM Orders
+WHERE Status IS NULL;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| OrderID    | OrderDate |
+| ---------- | ---------- |
+| 1001       | 2023-01-15 |
+| 1004       | 2023-02-10 |
+| 1007       | 2023-03-05 |
+                    </code></pre>
+                </li>
+                <!-- Add more IS Null examples here -->
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'coalesce'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">COALESCE</h2>
+            <ul class="examples">
+                <li>
+                    <strong>COALESCE (Column1, Column2, ...):</strong>
+                    <span class="syntax">Syntax: COALESCE(column1, column2, ...)</span>
+                    <p class="description">Description: The COALESCE function returns the first non-NULL value from a
+                        list of columns. It is useful for selecting the first available value from multiple options.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT ProductName, COALESCE(PromotionalPrice, DiscountedPrice, RegularPrice) AS Price
+FROM Products;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| ProductName    | Price     |
+| --------------- | --------- |
+| Product 1       | 8.00      |
+| Product 2       | 15.00     |
+| Product 3       | 12.00     |
+| Product 4       | 20.00     |
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>COALESCE (FirstName, LastName, 'N/A'):</strong>
+                    <span class="syntax">Syntax: COALESCE(FirstName, LastName, 'N/A')</span>
+                    <p class="description">Description: In this example, we use 'N/A' as the default value if both
+                        'FirstName' and 'LastName' are NULL.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT EmployeeID, COALESCE(FirstName, LastName, 'N/A') AS FullName
+FROM Employees;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| EmployeeID | FullName |
+| ---------- | -------- |
+| 101        | John     |
+| 102        | Alice    |
+| 103        | Bob      |
+| 104        | N/A      |
+                    </code></pre>
+                </li>
+                <!-- Add more COALESCE examples here -->
+            </ul>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'nullif'">
+        <div class="data-type-content">
+            <h2 class="data-type-title">NULLIF</h2>
+            <ul class="examples">
+                <li>
+                    <strong>NULLIF (Value1, Value2):</strong>
+                    <span class="syntax">Syntax: NULLIF(value1, value2)</span>
+                    <p class="description">Description: The NULLIF function compares two values and returns NULL if they
+                        are equal; otherwise, it returns the first value. It is often used to handle cases where you
+                        want to treat specific values as NULL.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT EmployeeName, NULLIF(Supervisor, 'None') AS RealSupervisor
+FROM Employees;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| EmployeeName    | RealSupervisor |
+| --------------- | -------------- |
+| John            | John           |
+| Alice           | Bob            |
+| Bob             | Bob            |
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>NULLIF (Score1, Score2):</strong>
+                    <span class="syntax">Syntax: NULLIF(Score1, Score2)</span>
+                    <p class="description">Description: In this example, NULLIF is used to compare two test scores and
+                        return NULL if they are the same.</p>
+                    SQL Example:
+                    <pre><code>
+SELECT StudentName, NULLIF(TestScore1, TestScore2) AS BestScore
+FROM Students;
+                    </code></pre>
+                    Output:
+                    <pre><code>
+| StudentName    | BestScore |
+| --------------- | --------- |
+| Alice           | 98        |
+| Bob             | NULL      |
+| Carol           | 85        |
+                    </code></pre>
+                </li>
+                <!-- Add more NULLIF examples here -->
+            </ul>
+        </div>
+    </ng-container>
+</div>

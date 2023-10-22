@@ -1,0 +1,34 @@
+.case-container {
+    background-color: #f0f0f0; /* Set your desired background color */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sql-container {
+    background-color: #ffffff; /* Set the SQL container background color */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sql-title {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .sql-code {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Set the SQL code background color */
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  /* You can adjust colors, fonts, and sizes as per your preference. */
+  

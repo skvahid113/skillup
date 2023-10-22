@@ -1,0 +1,16 @@
+<div class="user-defined-functions-container">
+    <div *ngFor="let userDefinedFunction of userDefinedFunctions" class="user-defined-function">
+      <h2>Description: {{ userDefinedFunction.description }}</h2>
+      <p class="sql-title">Syntax:</p>
+      <p class="sql-code">{{ userDefinedFunction.syntax }}</p>
+      <p class="sql-title">Examples:</p>
+      <ul>
+        <li *ngFor="let example of userDefinedFunction.examples">{{ example }}</li>
+      </ul>
+      <p class="sql-title">SQL Example:</p>
+      <pre class="sql-code">{{ userDefinedFunction.sqlExample }}</pre>
+      <p class="sql-title">SQL Output:</p>
+      <pre class="sql-code">{{ userDefinedFunction.sqlOutput }}</pre>
+    </div>
+  </div>
+  
