@@ -4,7 +4,7 @@
 
 /* Add this CSS to your stylesheet */
 body {
-    background: linear-gradient(to bottom, #6A9113, #7b4397); /* Adjust colors as needed */
+    background: linear-gradient(to bottom, #10a067, #71169e); /* Adjust colors as needed */
     background-attachment: fixed; /* Keeps the background fixed while scrolling */
     font-family: Arial, sans-serif; /* Specify a web-safe font */
     color: #333; /* Set a default text color */

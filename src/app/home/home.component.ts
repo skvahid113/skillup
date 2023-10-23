@@ -23,8 +23,8 @@ export class HomeComponent {
   circleColors = ["#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#00ffff", "#ffff00", "#f0f0f0", "#ff9900", "#9900ff", "#00cc00"];
   labels = ["SQL", "Python", "numpy", "pandas", "scipy", "matplotlib", "cufflinks", "K-means", "Git"];
 
-  
-  
+
+
 
   constructor(private router: Router, private activedRoute: ActivatedRoute) {
     const numCircles = 9;
@@ -48,7 +48,24 @@ export class HomeComponent {
     if (clickedLabel === 'SQL') {
       // Redirect to the SQL Path screen
       this.router.navigate(['/sqlpath']);
+    } else if (clickedLabel === 'Python') {
+      this.router.navigate(['/python']);
+    } else if (clickedLabel === 'numpy') {
+      this.router.navigate(['/numpy']);
+    } else if (clickedLabel === 'pandas') {
+      this.router.navigate(['/pandas']);
+    } else if (clickedLabel === 'scipy') {
+      this.router.navigate(['/scipy']);
+    } else if (clickedLabel === 'matplotlib') {
+      this.router.navigate(['/matplotlib']);
+    } else if (clickedLabel === 'cufflinks') {
+      this.router.navigate(['/cufflinks']);
+    } else if (clickedLabel === 'K-means') {
+      this.router.navigate(['/kmeans']);
+    } else if (clickedLabel === 'Git') {
+      this.router.navigate(['/git']);
     }
+
     // Add handling for other circles or labels as needed
   }
   showBoxes: boolean = false;
@@ -63,7 +80,7 @@ export class HomeComponent {
 
     setTimeout(() => {
       this.showBoxes = true;
-    }, 10000);
+    }, 4000);
 
     this.animate();
 
@@ -171,7 +188,7 @@ export class HomeComponent {
 
 
 
- 
+
 
 
 

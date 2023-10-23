@@ -1,0 +1,21 @@
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #a18c15, #6699CC); /* Adjust gradient colors */
+  }
+  
+  .coming-soon-content {
+    text-align: center;
+    color: #fff; /* Choose your text color */
+  }
+  
+  h1 {
+    font-size: 36px; /* Adjust the font size as needed */
+  }
+  
+  p {
+    font-size: 18px; /* Adjust the font size as needed */
+  }
+  

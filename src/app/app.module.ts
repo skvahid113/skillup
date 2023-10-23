@@ -23,6 +23,14 @@ import { IfWhileComponent } from './if-while/if-while.component';
 import { UserDefinedFunctionsComponent } from './user-defined-functions/user-defined-functions.component';
 import { ProceduresComponent } from './procedures/procedures.component';
 import { FormsModule } from '@angular/forms';
+import { PythonComponent } from './python/python.component';
+import { NumpyComponent } from './numpy/numpy.component';
+import { PandasComponent } from './pandas/pandas.component';
+import { ScipyComponent } from './scipy/scipy.component';
+import { MatplotlibComponent } from './matplotlib/matplotlib.component';
+import { CufflinksComponent } from './cufflinks/cufflinks.component';
+import { KMeansComponent } from './k-means/k-means.component';
+import { GitComponent } from './git/git.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +53,14 @@ import { FormsModule } from '@angular/forms';
     IfWhileComponent,
     UserDefinedFunctionsComponent,
     ProceduresComponent,
+    PythonComponent,
+    NumpyComponent,
+    PandasComponent,
+    ScipyComponent,
+    MatplotlibComponent,
+    CufflinksComponent,
+    KMeansComponent,
+    GitComponent,
   ],
   imports: [
     BrowserModule,
