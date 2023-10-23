@@ -3,14 +3,47 @@
 </div>
 
 <div class="screen-container">
-    <svg class="line-container" width="800" height="600">
+    <svg *ngIf="!showBoxes" class="line-container" width="800" height="600">
+        <!-- Circles -->
+
         <circle *ngFor="let circle of circles; let i = index" [attr.cx]="circle.x" [attr.cy]="circle.y" r="40"
             [attr.fill]="circleColors[i]" (click)="handleCircleClick(i)" style="cursor: pointer;"></circle>
-        <text *ngFor="let label of labels; let i = index" [attr.x]="circles[i].x" [attr.y]="circles[i].y - 10" fill="#000"
-            font-size="12" text-anchor="middle" font-weight="bold">
+        <text *ngFor="let label of labels; let i = index" [attr.x]="circles[i].x" [attr.y]="circles[i].y - 10"
+            fill="#000" font-size="12" text-anchor="middle" font-weight="bold">
             {{ label }}
         </text>
+
+        <!-- Lines (standalone for circles) -->
+
         <line *ngFor="let circle of circles; let i = index" [attr.x1]="circle.x" [attr.y1]="circle.y" x2="400" y2="300"
             [attr.stroke]="circleColors[i]" stroke-width="2"></line>
+
+
+
     </svg>
+
+
+    <!-- <svg *ngIf="showBoxes" class="line-container1" width="400" height="300">
+        <rect *ngFor="let circle of circles; let i = index" [attr.x]="(i % 3) * 260" [attr.y]="i / 3 * 100" width="80" height="80"
+            [attr.fill]="circleColors[i]" (click)="handleCircleClick(i)" style="cursor: pointer;"></rect>
+        <text *ngFor="let label of labels; let i = index" [attr.x]="(i % 3) * 260 + 40" [attr.y]="i / 3 * 100 + 60" fill="#000"
+            font-size="12" text-anchor="middle" font-weight="bold">
+            {{ labels[i] }}
+        </text>
+    </svg> -->
+
+    <svg *ngIf="showBoxes" class="line-container1" width="240" height="240">
+        <rect *ngFor="let circle of circles; let i = index" [attr.x]="(i % 3) * 80 + 5" [attr.y]="(i >= 3 && i < 6) ? 85 : (i >= 6) ? 165 : 5" width="70" height="70" rx="10" ry="10"
+            [attr.fill]="circleColors[i]" (click)="handleCircleClick(i)" style="cursor: pointer;"></rect>
+        <text *ngFor="let label of labels; let i = index" [attr.x]="(i % 3) * 80 + 40" [attr.y]="(i >= 3 && i < 6) ? 140 : (i >= 6) ? 220 : 60" fill="#000"
+            font-size="12" text-anchor="middle" font-weight="bold">
+            {{ labels[i] }}
+        </text>
+    </svg>
+    
+    
+    
+    
+    
+
 </div>

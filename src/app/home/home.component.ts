@@ -21,36 +21,37 @@ export class HomeComponent {
   circles: Circle[] = [];
   // Define an array of distinct colors
   circleColors = ["#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#00ffff", "#ffff00", "#f0f0f0", "#ff9900", "#9900ff", "#00cc00"];
-labels = ["SQL", "Python", "numpy", "pandas", "scipy", "matplotlib", "cufflinks", "Kmeans Cluster", "Git"];
+  labels = ["SQL", "Python", "numpy", "pandas", "scipy", "matplotlib", "cufflinks", "K-means", "Git"];
 
+  
+  
 
+  constructor(private router: Router, private activedRoute: ActivatedRoute) {
+    const numCircles = 9;
+    const radius = 250; // Adjust the radius as needed
+    const centerX = 400; // X-coordinate of the "GO" circle
+    const centerY = 300; // Y-coordinate of the "GO" circle
 
-constructor(private router: Router,private activedRoute: ActivatedRoute) {
-  const numCircles = 9;
-  const radius = 250; // Adjust the radius as needed
-  const centerX = 400; // X-coordinate of the "GO" circle
-  const centerY = 300; // Y-coordinate of the "GO" circle
-
-  for (let i = 0; i < numCircles; i++) {
+    for (let i = 0; i < numCircles; i++) {
       const angle = (i / numCircles) * 2 * Math.PI;
 
       const x = centerX + radius * Math.cos(angle);
       const y = centerY + radius * Math.sin(angle);
 
       this.circles.push({ x, y });
+    }
   }
-}
 
 
-handleCircleClick(circleIndex: number) {
-  const clickedLabel = this.labels[circleIndex];
-  if (clickedLabel === 'SQL') {
-    // Redirect to the SQL Path screen
-    this.router.navigate(['/sqlpath']);
+  handleCircleClick(circleIndex: number) {
+    const clickedLabel = this.labels[circleIndex];
+    if (clickedLabel === 'SQL') {
+      // Redirect to the SQL Path screen
+      this.router.navigate(['/sqlpath']);
+    }
+    // Add handling for other circles or labels as needed
   }
-  // Add handling for other circles or labels as needed
-}
-
+  showBoxes: boolean = false;
 
 
   ngOnInit(): void {
@@ -59,6 +60,13 @@ handleCircleClick(circleIndex: number) {
     this.createPlanets();
 
     this.animate();
+
+    setTimeout(() => {
+      this.showBoxes = true;
+    }, 10000);
+
+    this.animate();
+
   }
 
   setupScene() {
@@ -135,7 +143,7 @@ handleCircleClick(circleIndex: number) {
 
     // Store the planets in your class array for further manipulation or animation
     // this.planets.push(planet2);
-}
+  }
 
 
 
@@ -151,7 +159,7 @@ handleCircleClick(circleIndex: number) {
       if (this.earth) {
         this.earth.rotation.y += 0.002;
       }
-      
+
 
       // Add rotation logic for other planets here
 
@@ -163,7 +171,7 @@ handleCircleClick(circleIndex: number) {
 
 
 
-
+ 
 
 
 
