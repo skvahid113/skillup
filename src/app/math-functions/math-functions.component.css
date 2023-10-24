@@ -1,45 +1,52 @@
+/* Button container styles */
 .button-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
-  
-  .category-button {
+}
+
+/* Button styles */
+.category-button {
     background-color: #0074D9;
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-  }
-  
-  .category-button:hover {
+}
+
+.category-button:hover {
     background-color: #0056b3;
-  }
-  
-  .category-content {
+}
+
+/* Category content styles */
+.category-content {
     border: 1px solid #ccc;
     padding: 20px;
     background-color: #f5f5f5;
     font-family: "Courier New", monospace;
-  }
-  
-  h2 {
+}
+
+/* Heading styles */
+h2 {
     font-size: 24px;
     margin: 0;
-  }
-  
-  .description {
+}
+
+/* Description styles */
+.description {
     font-size: 16px;
     margin-top: 10px;
-  }
-  
-  .sql-title {
+}
+
+/* SQL title styles */
+.sql-title {
     font-size: 18px;
     margin-top: 20px;
-  }
-  
-  .sql-code {
+}
+
+/* SQL code styles */
+.sql-code {
     background-color: #222;
     color: #00FF41;
     padding: 10px;
@@ -47,13 +54,28 @@
     font-size: 14px;
     white-space: pre-wrap;
     margin-top: 10px;
-  }
-  
+}
 
-
-
-  
-  .active-category-button {
+/* Active button styles */
+.active-category-button {
     background-color: #0072ff; /* Your desired active background color */
     color: #fff; /* Text color when active */
-  }
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 770px) {
+    .button-container {
+        flex-wrap: wrap;
+    }
+
+    .category-button {
+        margin-bottom: 10px; /* Add space between buttons */
+    }
+}

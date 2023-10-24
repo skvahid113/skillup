@@ -1,172 +1,158 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set the font family and background color for the entire page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Adjust the Viewport Meta Tag */
+meta {
+  name: "viewport";
+  content: "width=device-width, initial-scale=1.0";
+}
+
+/* Content container styles */
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  /* Style for the navigation buttons container */
-  .navigation-buttons {
-    margin-top: 20px;
-  }
-  
-  /* Style for the navigation buttons */
-  .navigation-buttons .btn {
-    background-color: #1b8f1f;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 16px;
-    margin: 5px;
-    cursor: pointer;
-  }
-  
-  /* Style for the buttons when hovered */
-  .navigation-buttons .btn:hover {
-    background-color: #1b9225;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  margin: 20px;
+}
 
-  /* Increase the font size of the accordion headers and content */
+/* Navigation buttons container */
+.navigation-buttons {
+  margin-top: 20px;
+}
+
+/* Navigation buttons styles */
+.navigation-buttons .btn {
+  background-color: #1b8f1f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Navigation button hover effect */
+.navigation-buttons .btn:hover {
+  background-color: #1b9225;
+}
+
+/* Increase the font size and padding for the accordion headers and content */
 .accordion-button {
-    font-size: 20px; /* Adjust the font size to your preference */
-  }
-  
-  /* Increase the padding around the accordion headers and content */
-  .accordion-button {
-    padding: 20px; /* Adjust the padding to your preference */
-  }
-  
-  /* Increase the padding around the accordion content */
-  .accordion-collapse {
-    padding: 40px; /* Adjust the padding to your preference */
-  }
+  font-size: 20px;
+  padding: 20px;
+}
 
-  .accordion {
-    width: 950px; /* Adjust the width to your preference */
-    margin-left: 50px;
-  }
-  
-  .accordion-button {
-    background: linear-gradient(to bottom, #673ab7, #512da8); /* Adjust colors as needed */
-    color: #fff; /* Text color for the header */
-  }
-  
-  /* Hover effect (optional) */
-  .accordion-button:hover {
-    background-color: #9b630f; /* Change the color on hover */
-  }
+/* Increase the padding around the accordion content */
+.accordion-collapse {
+  padding: 20px;
+}
 
-  /* Styles for the SQL script editor */
+/* Styles for the SQL script editor */
 .sql-editor {
-    background-color: #f5f5f5; /* Light gray background */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px;
-    padding: 10px;
+  font-family: 'Courier New', monospace; /* Monospaced font for SQL code */
+  background-color: #F2F2F2; /* Light gray background */
+  padding: 20px; /* Increased padding */
+  border: 1px solid #D0D0D0;
+  border-radius: 4px;
+  margin-top: 10px;
 }
 
 .sql-editor textarea {
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-    color: #333; /* Text color */
-    outline: none; /* Remove the textarea outline */
-    resize: none; /* Disable textarea resizing */
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-family: 'Courier New', monospace; /* Monospaced font for SQL code */
+  font-size: 14px;
+  color: #333; /* Text color */
+  outline: none; /* Remove the textarea outline */
+  resize: none; /* Disable textarea resizing */
 }
 
 .sql-editor textarea::selection {
-    background: #007BFF; /* Highlighted text background color */
-    color: white; /* Highlighted text color */
-}
-
-/* Styles for the "CREATE TABLE" script */
-.sql-editor textarea#createTableScript {
-    height: 300px; /* Adjust the height as needed */
-    /* You can add more styles or customize the height to your preference */
+  background: #007BFF; /* Highlighted text background color */
+  color: white; /* Highlighted text color */
 }
 
 /* Style the SQL syntax box */
 .sql-syntax {
-    background-color: #f7f7f7; /* Light gray background */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: auto; /* Enable horizontal scrolling if needed */
-    max-height: 200px; /* Set a maximum height for vertical scrolling */
+  background-color: #f7f7f7; /* Light gray background */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: auto; /* Enable horizontal scrolling if needed */
+  max-height: 200px; /* Set a maximum height for vertical scrolling */
 }
 
 /* Style SQL keywords */
 .sql-keyword {
-    color: #007bff; /* Blue color for keywords */
+  color: #569CD6; /* Blue for SQL keywords */
 }
 
 /* Style SQL column names */
 .sql-column {
-    color: #e91e63; /* Pink color for column names */
+  color: #4EC9B0; /* Green for identifiers (table and column names) */
 }
 
 /* Style SQL data types */
 .sql-datatype {
-    color: #673ab7; /* Purple color for data types */
+  color: #B77E65; /* Brown for data types */
 }
 
 /* Style SQL constraints */
 .sql-constraint {
-    color: #4caf50; /* Green color for constraints */
+  color: #6A9955; /* Dark green for constraints */
+  font-style: italic;
 }
 
-/* Custom styles for SQL-like feel */
-.sql-keyword {
-    color: #569CD6; /* Blue for SQL keywords */
+/* Media query for laptops and larger screens (1024px and above) */
+@media screen and (min-width: 1024px) {
+  .content {
+      align-items: flex-start; /* Reset horizontal alignment for larger screens */
+      margin: 20px;
+  }
+  .accordion {
+      width: 1000px; /* Adjust the width as needed for laptops */
+      margin: 50px;
+  }
+  .accordion-button {
+      font-size: 20px;
+      padding: 20px;
+  }
+  .accordion-button,
+  .accordion-collapse {
+      padding: 20px;
+  }
+  .sql-editor {
+      padding: 20px;
+  }
 }
 
-.sql-identifier {
-    color: #4EC9B0; /* Green for identifiers (table and column names) */
-}
-
-.sql-comment {
-    color: #6A9955; /* Dark green for comments */
-    font-style: italic;
-}
-
-.sql-editor {
-    font-family: 'Courier New', monospace; /* Monospaced font for SQL code */
-    background-color: #F2F2F2; /* Light gray background */
-    padding: 10px;
-    border: 1px solid #D0D0D0;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-
- /* Style the table container */
- .table-container {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    padding: 10px;
-    align-self: auto;
-}
-
-/* Style the table header row */
-.table-container table thead tr {
-    background-color: #4CAF50;
-    color: white;
-}
-
-/* Style the table header cells */
-.table-container table th {
-    text-align: left;
-    padding: 10px;
-}
-
-/* Style the table rows */
-.table-container table tbody tr {
-    border-bottom: 1px solid #ddd;
-}
-
-/* Style the table cells */
-.table-container table td {
-    padding: 10px;
+/* Media query for smaller screens (up to 767px) */
+@media screen and (max-width: 767px) {
+  .content {
+      align-items: center;
+      margin: 10px;
+  }
+  .accordion-button {
+      font-size: 16px;
+      padding: 10px;
+  }
+  .accordion-collapse {
+      padding: 10px;
+  }
+  .sql-editor {
+      padding: 10px; /* Increase padding for small screens */
+  }
 }

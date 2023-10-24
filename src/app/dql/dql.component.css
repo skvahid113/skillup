@@ -1,43 +1,47 @@
 /* Add styles for the DQL screen here */
 .dql-content {
     margin: 20px;
-  }
-  
-  /* Accordion styles */
-  .accordion {
+    font-family: 'Courier New', monospace;
+}
+
+/* Accordion styles */
+.accordion {
     margin-top: 20px;
-  }
-  
-  .accordion-button {
+}
+
+.accordion-button {
     background-color: #007BFF;
     color: #fff;
-  }
-  
-  .accordion-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .accordion-collapse {
-    background-color: #f8f9fa;
-  }
-  
-  .sql-description {
     font-weight: bold;
-  }
-  
-  .sql-keyword {
+}
+
+.accordion-button:hover {
+    background-color: #0056b3;
+}
+
+.accordion-collapse {
+    background-color: #f8f9fa;
+    font-family: 'Courier New', monospace;
+}
+
+.sql-description {
+    font-weight: bold;
+}
+
+.sql-keyword {
     color: #007BFF;
-  }
-  
-  .sql-identifier {
+    font-weight: bold;
+}
+
+.sql-identifier {
     color: #28a745;
-  }
-  
-  .sql-condition {
+}
+
+.sql-condition {
     color: #e0a800;
-  }
-  
-  .sql-comment {
+}
+
+.sql-comment {
     color: #6c757d;
-  }
-  
+    font-style: italic;
+}
